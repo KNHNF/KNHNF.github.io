@@ -28,6 +28,21 @@ I enjoy turning real‑world problems into clean, structured workflows — the k
 </div>
 </div>
 
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-number">3+</div>
+    Projects Built
+</div>
+<div class="stat-card">
+<div class="stat-number">5+</div>
+    Core Tools
+</div>
+<div class="stat-card">
+<div class="stat-number">2+</div>
+    Years Coding
+</div>
+</div>
+
 <h2 class="section-title">Featured Projects</h2>
 
 <div class="featured-projects">

@@ -17,8 +17,11 @@ These are some of the projects I’m working on or have built recently. I prefer
 A BI-style pipeline that ingests, cleans, validates, and analyses retail transaction data using Python and MySQL. Includes automated quality checks, KPI reporting, and visual outputs.
 </p>
 <p>
-<strong>Tech:</strong> Python, Pandas, MySQL<br>
-<strong>Repo:</strong> <a href="https://github.com/KNHF/retail-sales-kpi-analysis">github.com/KNHF/retail-sales-kpi-analysis</a>
+<div>
+<span class="tech-tag">Python</span>
+<span class="tech-tag">Pandas</span>
+<span class="tech-tag">MySQL</span>
+</div><strong>Repo:</strong> <a href="https://github.com/KNHF/retail-sales-kpi-analysis">github.com/KNHF/retail-sales-kpi-analysis</a>
 </p>
 </div>
 
