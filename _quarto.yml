@@ -4,7 +4,7 @@ project:
 
 website:
   title: "Karan Homayounfar"
-  site-url: https://knhf.github.io
+  site-url: https://KNHNF.github.io
   description: "Personal portfolio and data science projects"
   favicon: favicon.png
   sidebar: false
@@ -21,7 +21,7 @@ website:
         text: Contact
     right:
       - icon: github
-        href: https://github.com/knhf
+        href: https://github.com/KNHNF
       - icon: linkedin
         href: https://www.linkedin.com/in/karan-homayounfar/
 

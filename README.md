@@ -89,8 +89,8 @@ The output goes into the `docs/` folder.
 If you want to connect or collaborate:
 
 - GitHub: https://github.com/KNHNF 
-- LinkedIn: *add your link here*  
-- Email: *optional*
+- LinkedIn: https://www.linkedin.com/in/karan-homayounfar
+- Email: karanhomayounfar2@gmail.com
 
 ---
 
