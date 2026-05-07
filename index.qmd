@@ -53,7 +53,7 @@ I enjoy turning real‑world problems into clean, structured workflows — the k
 A practical automation tool that structures cluttered folders by sorting files into organised categories. Designed with clarity and predictability in mind, it helps keep systems tidy over time without unnecessary complexity.
 </p>
 <p>
-<strong>Repo:</strong> <a href="https://github.com/knhf/file-organizer">github.com/knhf/file-organizer</a>
+<strong>Repo:</strong> <a href="https://github.com/KNHNF/file-organizer">github.com/KNHNF/file-organizer</a>
 </p>
 </div>
 
@@ -63,7 +63,7 @@ A practical automation tool that structures cluttered folders by sorting files i
 A Quarto‑based personal site where I document my work, experiments, and ongoing projects. I treat the site itself as a living project — refining structure, styling, and content as I grow.
 </p>
 <p>
-<strong>Repo:</strong> <a href="https://github.com/knhf/KNHF.github.io">github.com/knhf/KNHF.github.io</a>
+<strong>Repo:</strong> <a href="https://github.com/KNHNF/KNHNF.github.io">github.com/KNHNF/KNHNF.github.io</a>
 </p>
 </div>
 
@@ -73,7 +73,7 @@ A Quarto‑based personal site where I document my work, experiments, and ongoin
 A small BI-style pipeline that ingests, cleans, validates, and analyses retail transaction data using Python and MySQL. Includes automated quality checks, KPI reporting, and visual outputs.
 </p>
 <p>
-<strong>Repo:</strong> <a href="https://github.com/KNHF/retail-sales-kpi-analysis">github.com/KNHF/retail-sales-kpi-analysis</a>
+<strong>Repo:</strong> <a href="https://github.com/KNHNF/retail-sales-kpi-analysis">github.com/KNHNF/retail-sales-kpi-analysis</a>
 </p>
 </div>
 
@@ -101,7 +101,7 @@ I’m focusing on building a small set of well‑structured, meaningful projects
 <h2 class="section-title">Connect with Me</h2>
 
 <ul>
-<li><strong>GitHub:</strong> <a href="https://github.com/knhf">github.com/knhf</a></li>
+<li><strong>GitHub:</strong> <a href="https://github.com/KNHNF">github.com/KNHNF</a></li>
 <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/karan-homayounfar/">linkedin.com/in/karan-homayounfar</a></li>
 </ul>
 
@@ -114,7 +114,7 @@ I’m focusing on building a small set of well‑structured, meaningful projects
 </div>
 
 <div class="footer-icons">
-<a href="https://github.com/knhf" aria-label="GitHub"><i class="bi bi-github"></i></a>
+<a href="https://github.com/KNHNF" aria-label="GitHub"><i class="bi bi-github"></i></a>
 <a href="https://www.linkedin.com/in/karan-homayounfar/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
 </div>
 

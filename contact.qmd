@@ -12,7 +12,7 @@ If you’d like to talk about projects, ideas, or potential opportunities, the e
 <h2 class="section-title">Contact details</h2>
 
 <ul class="contact-list">
-<li><strong>GitHub:</strong> <a href="https://github.com/knhf">github.com/knhf</a></li>
+<li><strong>GitHub:</strong> <a href="https://github.com/KNHNF">github.com/KNHNF</a></li>
 <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/karan-homayounfar/">linkedin.com/in/karan-homayounfar</a></li>
 </ul>
 
@@ -33,7 +33,7 @@ If you prefer email, you can reach me at:
 </div>
 
 <div class="footer-icons">
-<a href="https://github.com/knhf" aria-label="GitHub"><i class="bi bi-github"></i></a>
+<a href="https://github.com/KNHNF" aria-label="GitHub"><i class="bi bi-github"></i></a>
 <a href="https://www.linkedin.com/in/karan-homayounfar/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
 </div>
 

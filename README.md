@@ -3,7 +3,7 @@
 
 ![MIT License](https://img.shields.io/badge/License-MIT-green.svg)
 ![GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-blue)
-![Repo Size](https://img.shields.io/github/repo-size/knhf/knhf.github.io)
+![Repo Size](https://img.shields.io/github/repo-size/KNHNF/KNHNF.github.io)
 
 This repo contains the source for my personal portfolio site.  
 I built it with **Quarto** because I wanted something clean, lightweight, and easy to maintain, while still giving me full control over the layout and styling.
@@ -11,7 +11,7 @@ I built it with **Quarto** because I wanted something clean, lightweight, and ea
 The site includes my projects, a bit about me, and ways to get in touch.  
 It’s intentionally simple — fast to load, easy to navigate, and focused on the content.
 
-🔗 Live site: https://knhf.github.io
+🔗 Live site: https://KNHNF.github.io
 
 ---
 
@@ -88,7 +88,7 @@ The output goes into the `docs/` folder.
 
 If you want to connect or collaborate:
 
-- GitHub: https://github.com/knhf  
+- GitHub: https://github.com/KNHNF 
 - LinkedIn: *add your link here*  
 - Email: *optional*
 

@@ -21,7 +21,7 @@ A BI-style pipeline that ingests, cleans, validates, and analyses retail transac
 <span class="tech-tag">Python</span>
 <span class="tech-tag">Pandas</span>
 <span class="tech-tag">MySQL</span>
-</div><strong>Repo:</strong> <a href="https://github.com/KNHF/retail-sales-kpi-analysis">github.com/KNHF/retail-sales-kpi-analysis</a>
+</div><strong>Repo:</strong> <a href="https://github.com/KNHNF/retail-sales-kpi-analysis">github.com/KNHNF/retail-sales-kpi-analysis</a>
 </p>
 </div>
 
@@ -34,7 +34,7 @@ A practical automation tool that cleans and structures messy folders. It moves f
 </p>
 <p>
 <strong>Tech:</strong> Python<br>
-<strong>Repo:</strong> <a href="https://github.com/knhf/file-organizer">github.com/knhf/file-organizer</a>
+<strong>Repo:</strong> <a href="https://github.com/KNHNF/file-organizer">github.com/KNHNF/file-organizer</a>
 </p>
 </div>
 
@@ -47,7 +47,7 @@ A Quarto-based personal site where I document my work and experiments. I treat t
 </p>
 <p>
 <strong>Tech:</strong> Quarto, HTML, CSS, GitHub Pages<br>
-<strong>Repo:</strong> <a href="https://github.com/knhf/KNHF.github.io">github.com/knhf/KNHF.github.io</a>
+<strong>Repo:</strong> <a href="https://github.com/KNHNF/KNHNF.github.io">github.com/KNHNF/KNHNF.github.io</a>
 </p>
 </div>
 
@@ -60,7 +60,7 @@ A Quarto-based personal site where I document my work and experiments. I treat t
 </div>
 
 <div class="footer-icons">
-<a href="https://github.com/knhf" aria-label="GitHub"><i class="bi bi-github"></i></a>
+<a href="https://github.com/KNHNF" aria-label="GitHub"><i class="bi bi-github"></i></a>
 <a href="https://www.linkedin.com/in/karan-homayounfar/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
 </div>
 
