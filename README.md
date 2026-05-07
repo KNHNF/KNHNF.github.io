@@ -88,7 +88,7 @@ The output goes into the `docs/` folder.
 
 If you want to connect or collaborate:
 
-- GitHub: https://github.com/KNHNF 
+- GitHub: https://github.com/KNHNF
 - LinkedIn: https://www.linkedin.com/in/karan-homayounfar
 - Email: karanhomayounfar2@gmail.com
 
@@ -97,4 +97,4 @@ If you want to connect or collaborate:
 ## License
 
 This project is under the **MIT License**.
-```
+
