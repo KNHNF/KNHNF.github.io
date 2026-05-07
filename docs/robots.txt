@@ -1,1 +1,1 @@
-Sitemap: https://knhf.github.io/sitemap.xml
+Sitemap: https://KNHNF.github.io/sitemap.xml
