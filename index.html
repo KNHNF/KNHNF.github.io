@@ -4,207 +4,333 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karan Homayounfar</title>
-<meta name="description" content="MSc Data Science · UWE Bristol — data pipelines, ML models, and web products">
+<meta name="description" content="MSc Data Science, UWE Bristol. Data pipelines, forecasting models, and web products.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d1117;
-    --bg2: #161b22;
-    --bg3: #1c2128;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.13);
-    --text: #e6edf3;
-    --text2: #8b949e;
-    --text3: #484f58;
+    --bg: #0a0a0f;
+    --bg2: #111118;
+    --bg3: #17171f;
+    --border: rgba(255,255,255,0.06);
+    --border2: rgba(255,255,255,0.12);
+    --text: #e8e8f0;
+    --text2: #8888a8;
+    --text3: #44445a;
     --accent: #a78bfa;
     --teal: #2dd4bf;
-    --green: #3fb950;
+    --green: #4ade80;
+    --amber: #fbbf24;
     --fn: 'Syne', sans-serif;
     --fb: 'DM Sans', sans-serif;
     --fm: 'DM Mono', monospace;
   }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--text); font-family: var(--fb); font-size: 15px; line-height: 1.65; min-height: 100vh; }
 
-  .page { max-width: 820px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 5rem 2rem 6rem; }
 
-  /* HEADER */
-  .header { margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-  .name { font-family: var(--fn); font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 0.3rem; }
-  .handle { font-family: var(--fm); font-size: 0.75rem; color: var(--text3); letter-spacing: 0.05em; margin-bottom: 0.75rem; }
-  .bio { font-size: 0.92rem; color: var(--text2); max-width: 500px; line-height: 1.65; margin-bottom: 1.5rem; }
+  /* ── HEADER ── */
+  .header { margin-bottom: 4rem; }
 
-  .links { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .header-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .name-block { flex: 1; }
+
+  .name {
+    font-family: var(--fn); font-weight: 800;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    letter-spacing: -0.04em; line-height: 0.95;
+    margin-bottom: 0.5rem;
+  }
+
+  .name span {
+    display: block;
+    background: linear-gradient(135deg, var(--accent) 20%, var(--teal) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .handle {
+    font-family: var(--fm); font-size: 0.7rem;
+    color: var(--text3); letter-spacing: 0.08em;
+  }
+
+  .status-pill {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--fm); font-size: 0.65rem; letter-spacing: 0.07em;
+    color: var(--green); background: rgba(74,222,128,0.08);
+    border: 1px solid rgba(74,222,128,0.2);
+    padding: 0.3rem 0.7rem; border-radius: 20px;
+    margin-top: 1rem; white-space: nowrap;
+  }
+
+  .status-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .bio {
+    font-size: 0.92rem; color: var(--text2);
+    line-height: 1.7; max-width: 460px;
+    margin-bottom: 1.5rem;
+  }
+
+  .links { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+
   .link-btn {
     display: inline-flex; align-items: center; gap: 0.4rem;
-    font-family: var(--fm); font-size: 0.72rem; font-weight: 500;
+    font-family: var(--fm); font-size: 0.7rem; font-weight: 500;
     letter-spacing: 0.04em; text-decoration: none;
     padding: 0.45rem 1rem; border-radius: 5px; transition: all 0.2s;
   }
-  .link-primary { color: #0d1117; background: var(--accent); }
-  .link-primary:hover { background: #c4b5fd; }
-  .link-ghost { color: var(--text2); border: 1px solid var(--border2); }
-  .link-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.22); }
+  .lp { color: #0a0a0f; background: var(--accent); }
+  .lp:hover { background: #c4b5fd; }
+  .lg { color: var(--text2); border: 1px solid var(--border2); }
+  .lg:hover { color: var(--text); border-color: rgba(255,255,255,0.22); }
 
-  /* SECTION */
-  .section { margin-bottom: 2.75rem; }
-  .section-label {
-    font-family: var(--fm); font-size: 0.65rem; letter-spacing: 0.13em;
-    text-transform: uppercase; color: var(--accent);
-    margin-bottom: 1rem; padding-bottom: 0.45rem;
-    border-bottom: 1px solid var(--border);
+  /* ── STATS ── */
+  .stats-strip {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem; margin-bottom: 3.5rem;
+    padding: 1.5rem; background: var(--bg2);
+    border: 1px solid var(--border); border-radius: 12px;
   }
 
-  /* STATS ROW */
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.85rem; }
-  .stat {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1rem 0.85rem; text-align: center;
-  }
-  .stat-num {
+  .stat { text-align: center; }
+
+  .stat-n {
     font-family: var(--fn); font-weight: 800;
-    font-size: 1.75rem; letter-spacing: -0.03em;
+    font-size: 1.55rem; letter-spacing: -0.03em;
     color: var(--accent); line-height: 1;
   }
-  .stat-lbl {
-    font-family: var(--fm); font-size: 0.6rem;
-    color: var(--text3); letter-spacing: 0.06em;
-    text-transform: uppercase; margin-top: 0.25rem;
+
+  .stat-l {
+    font-family: var(--fm); font-size: 0.58rem;
+    color: var(--text3); letter-spacing: 0.07em;
+    text-transform: uppercase; margin-top: 0.3rem;
+    line-height: 1.3;
   }
 
-  /* REPOS */
-  .repos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.9rem; }
-  .repo {
+  /* ── SECTION ── */
+  .sec { margin-bottom: 3rem; }
+
+  .sec-title {
+    font-family: var(--fm); font-size: 0.62rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+  }
+
+  /* ── PROJECTS ── */
+  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+
+  .proj {
     background: var(--bg2); border: 1px solid var(--border);
     border-radius: 10px; padding: 1.1rem 1.2rem;
     text-decoration: none; color: inherit;
-    transition: all 0.22s; display: flex; flex-direction: column; gap: 0.45rem;
+    transition: all 0.2s; display: flex;
+    flex-direction: column; gap: 0.4rem;
+    position: relative; overflow: hidden;
   }
-  .repo:hover { border-color: var(--border2); background: var(--bg3); transform: translateY(-2px); }
-  .repo-name { font-family: var(--fm); font-size: 0.8rem; font-weight: 500; color: var(--accent); }
-  .repo-desc { font-size: 0.78rem; color: var(--text2); line-height: 1.5; flex: 1; }
-  .repo-foot {
+
+  .proj::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 1px; background: linear-gradient(90deg, var(--accent), var(--teal));
+    opacity: 0; transition: opacity 0.2s;
+  }
+
+  .proj:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .proj:hover::before { opacity: 1; }
+
+  .proj-name { font-family: var(--fm); font-size: 0.78rem; font-weight: 500; color: var(--accent); }
+  .proj-desc { font-size: 0.77rem; color: var(--text2); line-height: 1.5; flex: 1; }
+
+  .proj-foot {
     display: flex; align-items: center; justify-content: space-between;
-    font-family: var(--fm); font-size: 0.63rem; color: var(--text3); margin-top: 0.2rem;
+    font-family: var(--fm); font-size: 0.62rem; color: var(--text3); margin-top: 0.2rem;
   }
-  .lang { display: flex; align-items: center; gap: 0.3rem; }
-  .lang-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 0.3rem; }
+
   .badge {
-    font-family: var(--fm); font-size: 0.58rem; letter-spacing: 0.06em;
-    text-transform: uppercase; padding: 0.13rem 0.42rem; border-radius: 3px;
+    font-family: var(--fm); font-size: 0.57rem; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.12rem 0.4rem; border-radius: 3px;
   }
-  .live { color: var(--green); background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.2); }
-  .wip  { color: #d29922; background: rgba(210,153,34,0.1); border: 1px solid rgba(210,153,34,0.2); }
-  .done { color: var(--accent); background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); }
+  .blive { color: var(--green); background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.18); }
+  .bwip  { color: var(--amber); background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.18); }
+  .bdone { color: var(--accent); background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.18); }
 
-  /* STACK */
-  .stack-box {
+  /* ── STACK ── */
+  .stack {
     background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.2rem 1.5rem;
-    font-family: var(--fm); font-size: 0.77rem; color: var(--text2); line-height: 2;
+    border-radius: 10px; padding: 1.3rem 1.5rem;
+    font-family: var(--fm); font-size: 0.76rem;
+    color: var(--text2); line-height: 2.1;
   }
-  .sk { color: var(--accent); }
+  .sk { color: var(--teal); min-width: 90px; display: inline-block; }
 
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border); padding-top: 1.5rem;
-    font-family: var(--fm); font-size: 0.67rem; color: var(--text3);
+  /* ── CONTACT ── */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+
+  .contact-left p { font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 1rem; }
+
+  .contact-channels { display: flex; flex-direction: column; gap: 0.5rem; }
+  .ch {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: var(--fm); font-size: 0.72rem; color: var(--text2);
+    text-decoration: none; transition: color 0.2s;
+    padding: 0.3rem 0; border-bottom: 1px solid var(--border);
+  }
+  .ch:last-child { border-bottom: none; }
+  .ch:hover { color: var(--text); }
+
+  .form { display: flex; flex-direction: column; gap: 0.65rem; }
+
+  .fi, .ft {
+    background: var(--bg3); border: 1px solid var(--border2);
+    border-radius: 6px; padding: 0.65rem 0.9rem;
+    color: var(--text); font-family: var(--fm); font-size: 0.76rem;
+    outline: none; transition: border-color 0.2s; width: 100%;
+  }
+  .fi:focus, .ft:focus { border-color: var(--accent); }
+  .fi::placeholder, .ft::placeholder { color: var(--text3); }
+  .ft { resize: vertical; min-height: 90px; }
+
+  .fsub {
+    font-family: var(--fm); font-size: 0.73rem; font-weight: 500;
+    letter-spacing: 0.04em; color: #0a0a0f; background: var(--accent);
+    border: none; padding: 0.65rem 1.25rem; border-radius: 6px;
+    cursor: pointer; transition: background 0.2s; align-self: flex-start;
+  }
+  .fsub:hover { background: #c4b5fd; }
+  #fm { font-family: var(--fm); font-size: 0.7rem; margin-top: 0.25rem; }
+
+  /* ── FOOTER ── */
+  .foot {
+    border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 3rem;
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+    font-family: var(--fm); font-size: 0.65rem; color: var(--text3);
   }
-  footer a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
-  footer a:hover { color: var(--text2); }
+  .foot a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
+  .foot a:hover { color: var(--text2); }
 
-  @media (max-width: 580px) {
-    .page { padding: 2rem 1.25rem 4rem; }
-    .stats { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 600px) {
+    .wrap { padding: 3rem 1.25rem 4rem; }
+    .header-top { flex-direction: column; gap: 1rem; }
+    .projects { grid-template-columns: 1fr; }
+    .stats-strip { grid-template-columns: repeat(3, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="wrap">
 
+  <!-- HEADER -->
   <div class="header">
-    <div class="name">Karan Homayounfar</div>
-    <div class="handle">KNHNF · github.com/KNHNF</div>
-    <div class="bio">MSc Data Science · UWE Bristol. Building data pipelines, ML models, and web products that run in production. BSc Computer Engineering, 1st in graduating class.</div>
+    <div class="header-top">
+      <div class="name-block">
+        <div class="name">
+          Karan
+          <span>Homayounfar</span>
+        </div>
+        <div class="handle">KNHNF · Bristol, UK</div>
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          Open to internships and freelance
+        </div>
+      </div>
+    </div>
+
+    <div class="bio">MSc Data Science, UWE Bristol. Building data pipelines, forecasting models, and web products that run in production. BSc Computer Engineering, 1st in graduating class.</div>
+
     <div class="links">
-      <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="link-btn link-primary">Portfolio</a>
-      <a href="https://karan-portfolio-al7.pages.dev/cv" target="_blank" rel="noopener" class="link-btn link-ghost">CV</a>
-      <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="link-btn link-ghost">LinkedIn</a>
-      <a href="mailto:karanhomayounfar2@gmail.com" class="link-btn link-ghost">Email</a>
+      <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="link-btn lp">Portfolio</a>
+      <a href="https://karan-portfolio-al7.pages.dev/cv" target="_blank" rel="noopener" class="link-btn lg">CV</a>
+      <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="link-btn lg">LinkedIn</a>
+      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="link-btn lg">GitHub</a>
     </div>
   </div>
 
   <!-- STATS -->
-  <div class="section">
-    <div class="section-label">By the numbers</div>
-    <div class="stats">
-      <div class="stat"><div class="stat-num">1st</div><div class="stat-lbl">BSc rank</div></div>
-      <div class="stat"><div class="stat-num">18.87</div><div class="stat-lbl">BSc GPA / 20</div></div>
-      <div class="stat"><div class="stat-num">Dist.</div><div class="stat-lbl">MSc grades</div></div>
-      <div class="stat"><div class="stat-num">8+</div><div class="stat-lbl">Projects</div></div>
-      <div class="stat"><div class="stat-num">Gold</div><div class="stat-lbl">Student rep award</div></div>
-    </div>
+  <div class="stats-strip">
+    <div class="stat"><div class="stat-n">1st</div><div class="stat-l">BSc rank</div></div>
+    <div class="stat"><div class="stat-n">18.87</div><div class="stat-l">BSc GPA / 20</div></div>
+    <div class="stat"><div class="stat-n">Dist.</div><div class="stat-l">MSc grades</div></div>
+    <div class="stat"><div class="stat-n">8+</div><div class="stat-l">Projects</div></div>
+    <div class="stat"><div class="stat-n">Gold</div><div class="stat-l">Student rep</div></div>
   </div>
 
-  <!-- REPOS -->
-  <div class="section">
-    <div class="section-label">Projects</div>
-    <div class="repos">
+  <!-- PROJECTS -->
+  <div class="sec">
+    <div class="sec-title">Projects</div>
+    <div class="projects">
 
-      <a href="https://github.com/KNHNF/smartquote-assistant" target="_blank" rel="noopener" class="repo">
-        <div class="repo-name">smartquote-assistant</div>
-        <div class="repo-desc">LLM email extraction and quote automation. Ollama local models + GPT. 96% field accuracy.</div>
-        <div class="repo-foot">
-          <span class="lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge done">Done</span>
+      <a href="https://github.com/KNHNF/smartquote-assistant" target="_blank" rel="noopener" class="proj">
+        <div class="proj-name">smartquote-assistant</div>
+        <div class="proj-desc">Email extraction and quote automation. Ollama local models plus OpenAI GPT. 96% field accuracy.</div>
+        <div class="proj-foot">
+          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge bdone">Done</span>
         </div>
       </a>
 
-      <a href="https://github.com/KNHNF/retail-sales-kpi-analysis" target="_blank" rel="noopener" class="repo">
-        <div class="repo-name">retail-sales-kpi-analysis</div>
-        <div class="repo-desc">End-to-end BI pipeline. £10.6M retail dataset. Python, MySQL, Streamlit dashboard.</div>
-        <div class="repo-foot">
-          <span class="lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge done">Done</span>
+      <a href="https://github.com/KNHNF/retail-sales-kpi-analysis" target="_blank" rel="noopener" class="proj">
+        <div class="proj-name">retail-sales-kpi-analysis</div>
+        <div class="proj-desc">End-to-end BI pipeline. £10.6M retail dataset. Python, MySQL, Streamlit dashboard.</div>
+        <div class="proj-foot">
+          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge bdone">Done</span>
         </div>
       </a>
 
-      <a href="https://github.com/KNHNF/file-organizer" target="_blank" rel="noopener" class="repo">
-        <div class="repo-name">file-organizer</div>
-        <div class="repo-desc">Python CLI. Auto-sorts files with dry-run, undo, and custom config support.</div>
-        <div class="repo-foot">
-          <span class="lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge done">Done</span>
+      <a href="https://github.com/KNHNF/file-organizer" target="_blank" rel="noopener" class="proj">
+        <div class="proj-name">file-organizer</div>
+        <div class="proj-desc">Python CLI. Auto-sorts files with dry-run, undo, and custom config support.</div>
+        <div class="proj-foot">
+          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge bdone">Done</span>
         </div>
       </a>
 
-      <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="repo">
-        <div class="repo-name">ai-reception</div>
-        <div class="repo-desc">Local LLM phone handler for SMEs. Phi-3/LLaMA + Faster Whisper + Google Calendar. UWE Enterprise Scholarship.</div>
-        <div class="repo-foot">
-          <span class="lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge wip">In progress</span>
+      <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="proj">
+        <div class="proj-name">reception-system</div>
+        <div class="proj-desc">Local model phone handler for SMEs. Phi-3/LLaMA plus Faster Whisper plus Google Calendar. UWE Enterprise Scholarship.</div>
+        <div class="proj-foot">
+          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge bwip">In progress</span>
         </div>
       </a>
 
-      <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="repo">
-        <div class="repo-name">electricity-price-ews</div>
-        <div class="repo-desc">MSc dissertation. Early warning system for electricity price spikes from weather and grid data.</div>
-        <div class="repo-foot">
-          <span class="lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge wip">Dissertation</span>
+      <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="proj">
+        <div class="proj-name">electricity-price-ews</div>
+        <div class="proj-desc">MSc dissertation. Price spike early warning system from weather and grid data. Data partnership with Sense.</div>
+        <div class="proj-foot">
+          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge bwip">Dissertation</span>
         </div>
       </a>
 
-      <a href="https://dr-nastaran-site.pages.dev" target="_blank" rel="noopener" class="repo">
-        <div class="repo-name">dr-nastaran-site</div>
-        <div class="repo-desc">Client dental website. Cloudflare Pages, GA4, GTM, Clarity, before/after sliders, dark mode.</div>
-        <div class="repo-foot">
-          <span class="lang"><span class="lang-dot" style="background:#e34c26;"></span>HTML</span>
-          <span class="badge live">Live</span>
+      <a href="https://dr-nastaran-site.pages.dev" target="_blank" rel="noopener" class="proj">
+        <div class="proj-name">dr-nastaran-site</div>
+        <div class="proj-desc">Client dental website. Cloudflare Pages, GA4, GTM, Clarity, before/after sliders, dark mode.</div>
+        <div class="proj-foot">
+          <span><span class="dot" style="background:#e34c26;"></span>HTML</span>
+          <span class="badge blive">Live</span>
         </div>
       </a>
 
@@ -212,18 +338,44 @@
   </div>
 
   <!-- STACK -->
-  <div class="section">
-    <div class="section-label">Stack</div>
-    <div class="stack-box">
-      <span class="sk">Languages &nbsp;&nbsp;</span>Python · SQL · JavaScript · HTML/CSS<br>
-      <span class="sk">Data &amp; ML &nbsp;&nbsp;&nbsp;</span>Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Faster Whisper · LLM fine-tuning<br>
-      <span class="sk">Databases &nbsp;&nbsp;&nbsp;</span>MySQL · PostgreSQL · MongoDB<br>
-      <span class="sk">Deploy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Cloudflare Pages · GitHub Actions · Streamlit · FastAPI · Docker<br>
-      <span class="sk">Learning &nbsp;&nbsp;&nbsp;&nbsp;</span>Docker · Power BI · Cloud platforms
+  <div class="sec">
+    <div class="sec-title">Stack</div>
+    <div class="stack">
+      <span class="sk">Languages</span>Python · SQL · JavaScript · HTML/CSS<br>
+      <span class="sk">Data</span>Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · Faster Whisper · Time-series<br>
+      <span class="sk">Databases</span>MySQL · PostgreSQL · MongoDB<br>
+      <span class="sk">Deploy</span>Cloudflare Pages · GitHub Actions · Streamlit · FastAPI · Docker<br>
+      <span class="sk">Learning</span>Power BI · Cloud platforms
     </div>
   </div>
 
-  <footer>
+  <!-- CONTACT -->
+  <div class="sec">
+    <div class="sec-title">Contact</div>
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p>Open to freelance web and data projects, internships, and research collaborations. Based in Bristol.</p>
+        <div class="contact-channels">
+          <a href="mailto:karanhomayounfar2@gmail.com" class="ch">karanhomayounfar2@gmail.com</a>
+          <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="ch">linkedin.com/in/karan-homayounfar</a>
+          <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="ch">github.com/KNHNF</a>
+        </div>
+      </div>
+
+      <form class="form" id="cf">
+        <input type="hidden" name="access_key" value="4bfe649e-79ed-4523-a4fc-08cc7c7ad382">
+        <input type="hidden" name="subject" value="Message from knhnf.github.io">
+        <input type="checkbox" name="botcheck" style="display:none;">
+        <input class="fi" name="name" type="text" placeholder="Name" required>
+        <input class="fi" name="email" type="email" placeholder="Email" required>
+        <textarea class="ft" name="message" placeholder="Message" required rows="4"></textarea>
+        <button class="fsub" type="submit">Send</button>
+        <div id="fm"></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="foot">
     <span>Karan Homayounfar · Bristol, UK</span>
     <span>
       <a href="https://karan-portfolio-al7.pages.dev">portfolio</a> ·
@@ -231,8 +383,28 @@
       <a href="https://linkedin.com/in/karan-homayounfar">linkedin</a> ·
       <a href="https://github.com/KNHNF">github</a>
     </span>
-  </footer>
+  </div>
 
 </div>
+
+<script>
+document.getElementById('cf').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('button');
+  const msg = document.getElementById('fm');
+  btn.textContent = 'Sending...'; btn.disabled = true;
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {method:'POST', body: new FormData(this)});
+    const data = await res.json();
+    if (data.success) {
+      msg.style.color = '#4ade80'; msg.textContent = 'Sent.';
+      this.reset();
+    } else throw new Error();
+  } catch {
+    msg.style.color = '#f87171'; msg.textContent = 'Something went wrong. Email me directly.';
+  }
+  btn.textContent = 'Send'; btn.disabled = false;
+});
+</script>
 </body>
 </html>
