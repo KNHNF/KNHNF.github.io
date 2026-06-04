@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karan Homayounfar — GitHub</title>
+<meta name="description" content="GitHub profile of Karan Homayounfar — Data Scientist & Developer, MSc UWE Bristol">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2128;
+    --border: rgba(255,255,255,0.08);
+    --border2: rgba(255,255,255,0.14);
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --text3: #484f58;
+    --accent: #a78bfa;
+    --teal: #2dd4bf;
+    --green: #3fb950;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; min-height: 100vh; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+  /* HEADER */
+  .profile-header { display: flex; align-items: flex-start; gap: 2.5rem; margin-bottom: 3.5rem; }
+
+  .avatar {
+    width: 100px; height: 100px; border-radius: 50%;
+    background: var(--bg3); border: 2px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-weight: 800; font-size: 2rem; color: var(--accent);
+    flex-shrink: 0; overflow: hidden;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+  .profile-info { flex: 1; }
+
+  .profile-name {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: -0.03em; line-height: 1.1;
+    margin-bottom: 0.15rem;
+  }
+
+  .profile-handle {
+    font-family: var(--font-mono); font-size: 0.8rem;
+    color: var(--text3); letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+  }
+
+  .profile-bio {
+    font-size: 0.9rem; color: var(--text2); max-width: 480px;
+    line-height: 1.6; margin-bottom: 1rem;
+  }
+
+  .profile-meta {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+    font-family: var(--font-mono); font-size: 0.72rem; color: var(--text3);
+  }
+  .profile-meta span { display: flex; align-items: center; gap: 0.3rem; }
+
+  .profile-actions { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+
+  .btn-main {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em;
+    color: #0d1117; background: var(--accent);
+    padding: 0.55rem 1.25rem; border-radius: 6px; text-decoration: none; transition: background 0.2s;
+  }
+  .btn-main:hover { background: #c4b5fd; }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em;
+    color: var(--text2); border: 1px solid var(--border2);
+    padding: 0.55rem 1.25rem; border-radius: 6px; text-decoration: none; transition: all 0.2s;
+  }
+  .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: var(--font-mono); font-size: 0.68rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1rem; padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* CONTRIBUTION GRAPH */
+  .contrib-section { margin-bottom: 3rem; }
+  .contrib-embed {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem; overflow-x: auto;
+  }
+  .contrib-embed img { width: 100%; max-width: 100%; border-radius: 4px; display: block; }
+  .contrib-note {
+    font-family: var(--font-mono); font-size: 0.65rem; color: var(--text3);
+    margin-top: 0.6rem; text-align: right;
+  }
+
+  /* PINNED REPOS */
+  .repos-section { margin-bottom: 3rem; }
+  .repos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+
+  .repo-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem;
+    text-decoration: none; color: inherit;
+    transition: all 0.25s; display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .repo-card:hover { border-color: var(--border2); background: var(--bg3); transform: translateY(-2px); }
+
+  .repo-name {
+    font-family: var(--font-mono); font-size: 0.82rem; font-weight: 500;
+    color: var(--accent); display: flex; align-items: center; gap: 0.4rem;
+  }
+  .repo-name::before { content: '⌥'; font-size: 0.7rem; opacity: 0.6; }
+
+  .repo-desc { font-size: 0.8rem; color: var(--text2); line-height: 1.5; flex: 1; }
+
+  .repo-meta {
+    display: flex; align-items: center; gap: 1rem;
+    font-family: var(--font-mono); font-size: 0.65rem; color: var(--text3);
+    margin-top: 0.25rem;
+  }
+  .repo-lang { display: flex; align-items: center; gap: 0.3rem; }
+  .lang-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .repo-status {
+    font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.15rem 0.45rem; border-radius: 3px;
+    margin-left: auto;
+  }
+  .status-live { color: #3fb950; background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.2); }
+  .status-wip { color: #d29922; background: rgba(210,153,34,0.1); border: 1px solid rgba(210,153,34,0.2); }
+  .status-done { color: var(--accent); background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); }
+
+  /* STATS ROW */
+  .stats-section { margin-bottom: 3rem; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+
+  .stat-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1rem; text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-display); font-weight: 800;
+    font-size: 1.9rem; letter-spacing: -0.03em; color: var(--accent);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: var(--font-mono); font-size: 0.62rem;
+    color: var(--text3); letter-spacing: 0.07em;
+    text-transform: uppercase; margin-top: 0.3rem;
+  }
+
+  /* STACK */
+  .stack-section { margin-bottom: 3rem; }
+  .stack-row {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.25rem 1.5rem;
+    font-family: var(--font-mono); font-size: 0.78rem; color: var(--text2);
+    line-height: 2;
+  }
+  .stack-label { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border); padding-top: 1.5rem;
+    font-family: var(--font-mono); font-size: 0.68rem; color: var(--text3);
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  }
+  footer a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
+  footer a:hover { color: var(--text2); }
+
+  @media (max-width: 600px) {
+    .profile-header { flex-direction: column; gap: 1.5rem; }
+    .page { padding: 2rem 1.25rem 4rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- PROFILE HEADER -->
+  <div class="profile-header">
+    <div class="avatar">
+      <!-- Add photo: <img src="https://raw.githubusercontent.com/knhnf/knhnf/main/karan-photo.jpg" alt="Karan"> -->
+      KH
+    </div>
+    <div class="profile-info">
+      <div class="profile-name">Karan Homayounfar</div>
+      <div class="profile-handle">knhnf</div>
+      <div class="profile-bio">
+        MSc Data Science · UWE Bristol. Building pipelines, models, and products that run in production.
+        BSc Computer Engineering, 1st in class. Enterprise scholarship holder.
+      </div>
+      <div class="profile-meta">
+        <span>📍 Bristol, UK</span>
+        <span>🎓 MSc Data Science</span>
+        <span>⚡ Open to internships &amp; freelance</span>
+      </div>
+      <div class="profile-actions">
+        <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="btn-main">
+          Portfolio ↗
+        </a>
+        <a href="https://karan-portfolio-al7.pages.dev/cv" target="_blank" rel="noopener" class="btn-ghost">
+          CV ↗
+        </a>
+        <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="btn-ghost">
+          LinkedIn ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTRIBUTION GRAPH -->
+  <div class="contrib-section">
+    <div class="section-title">Activity</div>
+    <div class="contrib-embed">
+      <img
+        src="https://ghchart.rshah.org/a78bfa/knhnf"
+        alt="Karan's GitHub contribution chart"
+        loading="lazy"
+      >
+      <div class="contrib-note">github.com/knhnf · contribution activity</div>
+    </div>
+  </div>
+
+  <!-- PINNED REPOS -->
+  <div class="repos-section">
+    <div class="section-title">Pinned Repositories</div>
+    <div class="repos-grid">
+
+      <a href="https://github.com/KNHNF/smartquote-assistant" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">smartquote-assistant</div>
+        <div class="repo-desc">LLM-powered email extraction and quote automation. Supports Ollama local models (Mistral, Phi-3) and GPT — 96% field accuracy.</div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="repo-status status-done">Done</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/KNHNF/retail-sales-kpi-analysis" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">retail-sales-kpi-analysis</div>
+        <div class="repo-desc">End-to-end BI pipeline over a £10.6M retail dataset. ETL, MySQL, Matplotlib dashboards, data quality checks.</div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="repo-status status-done">Done</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/knhnf/file-organizer" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">file-organizer</div>
+        <div class="repo-desc">Python CLI tool that auto-sorts files by type with dry-run, undo, and custom config support.</div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="repo-status status-done">Done</span>
+        </div>
+      </a>
+
+      <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">ai-reception</div>
+        <div class="repo-desc">Local LLM phone handler for SMEs — Phi-3/LLaMA + Faster Whisper STT + Google Calendar. UWE Enterprise Scholarship project.</div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="repo-status status-wip">In progress</span>
+        </div>
+      </a>
+
+      <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">electricity-price-ews</div>
+        <div class="repo-desc">MSc dissertation — early warning system for electricity price spikes using weather, demand, and grid data. Data partnership with Sense.</div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="repo-status status-wip">Dissertation</span>
+        </div>
+      </a>
+
+      <a href="https://dr-nastaran-site.pages.dev" target="_blank" rel="noopener" class="repo-card">
+        <div class="repo-name">dr-nastaran-site</div>
+        <div class="repo-desc">Client dental practice website — Cloudflare Pages, GA4, GTM, Clarity, before/after sliders, dark mode, dual form fallback.</div>
+        <div class="repo-meta">
+          <span class="repo-lang"><span class="lang-dot" style="background:#e34c26;"></span>HTML</span>
+          <span class="repo-status status-live">Live</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-section">
+    <div class="section-title">By the numbers</div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">1st</div>
+        <div class="stat-label">BSc class rank</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">18.87</div>
+        <div class="stat-label">BSc GPA / 20</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">84</div>
+        <div class="stat-label">Top MSc grade</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Projects shipped</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1.6M</div>
+        <div class="stat-label">Rows analysed</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STACK -->
+  <div class="stack-section">
+    <div class="section-title">Stack</div>
+    <div class="stack-row">
+      <span class="stack-label">Languages &nbsp;&nbsp;</span>Python · SQL · JavaScript · HTML/CSS<br>
+      <span class="stack-label">Data &amp; ML &nbsp;&nbsp;&nbsp;</span>Pandas · NumPy · Scikit-learn · Faster Whisper · LLM fine-tuning · Time-series forecasting<br>
+      <span class="stack-label">Databases &nbsp;&nbsp;&nbsp;</span>MySQL · PostgreSQL · MongoDB<br>
+      <span class="stack-label">Deploy &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Cloudflare Pages · GitHub Actions · Streamlit · Hugging Face Spaces<br>
+      <span class="stack-label">Learning &nbsp;&nbsp;&nbsp;&nbsp;</span>Docker · Power BI · Cloud platforms
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Karan Homayounfar · Bristol, UK</span>
+    <span>
+      <a href="https://karan-portfolio-al7.pages.dev">portfolio</a> ·
+      <a href="https://karan-portfolio-al7.pages.dev/cv">cv</a> ·
+      <a href="https://linkedin.com/in/karan-homayounfar">linkedin</a> ·
+      <a href="mailto:karan.homayounfar@gmail.com">email</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
