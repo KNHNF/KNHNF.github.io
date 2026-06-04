@@ -1,6 +1,6 @@
 # knhnf.github.io
 
-Personal GitHub Pages profile — knhnf.github.io
+Personal GitHub Pages profile - knhnf.github.io
 
 Redirects and links to the main portfolio at karan-portfolio-al7.pages.dev
 ```
