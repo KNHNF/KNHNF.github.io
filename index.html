@@ -10,14 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a0f;
-    --bg2: #111118;
-    --bg3: #17171f;
-    --border: rgba(255,255,255,0.06);
-    --border2: rgba(255,255,255,0.12);
+    --bg: #191926;
+    --bg2: #21213a;
+    --bg3: #27273e;
+    --border: rgba(255,255,255,0.11);
+    --border2: rgba(255,255,255,0.20);
     --text: #e8e8f0;
-    --text2: #8888a8;
-    --text3: #44445a;
+    --text2: #b0b0cc;
+    --text3: #7878a0;
     --accent: #a78bfa;
     --teal: #2dd4bf;
     --green: #4ade80;
@@ -25,7 +25,29 @@
     --fn: 'Syne', sans-serif;
     --fb: 'DM Sans', sans-serif;
     --fm: 'DM Mono', monospace;
+    --nav-bg: rgba(13,13,21,0.88);
   }
+  [data-theme="light"] {
+    --bg: #f4f4f8;
+    --bg2: #eaeaf0;
+    --bg3: #dfdfe8;
+    --border: rgba(0,0,0,0.08);
+    --border2: rgba(0,0,0,0.15);
+    --text: #1a1a2e;
+    --text2: #44446a;
+    --text3: #7a7a9a;
+    --accent: #7c3aed;
+    --teal: #0d9488;
+    --green: #16a34a;
+    --nav-bg: rgba(244,244,248,0.92);
+  }
+  .theme-toggle {
+    background: none; border: 1px solid var(--border2); color: var(--text2);
+    width: 32px; height: 32px; border-radius: 7px; cursor: pointer;
+    font-size: 0.82rem; display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; flex-shrink: 0;
+  }
+  .theme-toggle:hover { background: var(--bg3); color: var(--text); }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -256,9 +278,10 @@
       </div>
     </div>
 
-    <div class="bio">MSc Data Science, UWE Bristol. Building data pipelines, forecasting models, and web products that run in production. BSc Computer Engineering, 1st in graduating class.</div>
+    <div class="bio">MSc Data Science, UWE Bristol. Building data pipelines, forecasting models, and web products that run in production. BSc Computer Engineering, 1st in graduating class. Member, UWE Data and Computing Society.</div>
 
-    <div class="links">
+    <div class="links" style="display:flex;align-items:center;gap:0.6rem;">
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">☀</button>
       <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="link-btn lp">Portfolio</a>
       <a href="https://karan-portfolio-al7.pages.dev/cv" target="_blank" rel="noopener" class="link-btn lg">CV</a>
       <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="link-btn lg">LinkedIn</a>
@@ -309,10 +332,10 @@
 
       <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="proj">
         <div class="proj-name">reception-system</div>
-        <div class="proj-desc">Local model phone handler for SMEs. Phi-3/LLaMA plus Faster Whisper plus Google Calendar. UWE Enterprise Scholarship.</div>
+        <div class="proj-desc">Local model phone handler for SMEs. Phi-3/LLaMA plus Faster Whisper plus Google Calendar. UWE Enterprise Scholarship, pilot deployment.</div>
         <div class="proj-foot">
           <span><span class="dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge bwip">In progress</span>
+          <span class="badge blive">Pilot</span>
         </div>
       </a>
 
@@ -341,10 +364,10 @@
   <div class="sec">
     <div class="sec-title">Stack</div>
     <div class="stack">
-      <span class="sk">Languages</span>Python · SQL · JavaScript · HTML/CSS<br>
+      <span class="sk">Languages</span>Python · R · SQL · JavaScript · HTML/CSS · C++ · C#<br>
       <span class="sk">Data</span>Python · R (tidyverse, ggplot2) · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · XGBoost · LightGBM · Faster Whisper · Time-series<br>
       <span class="sk">Databases</span>MySQL · PostgreSQL · MongoDB<br>
-      <span class="sk">Deploy</span>Cloudflare Pages · GitHub Actions · Streamlit · FastAPI · Docker<br>
+      <span class="sk">Deploy</span>Cloudflare Pages · GitHub Actions · Streamlit · FastAPI · Docker · n8n<br>
       <span class="sk">Learning</span>Power BI · Cloud platforms
     </div>
   </div>
@@ -376,7 +399,7 @@
   </div>
 
   <div class="foot">
-    <span>Karan Homayounfar · Bristol, UK</span>
+    <span>Karan Homayounfar · Bristol, UK · 2026</span>
     <span>
       <a href="https://karan-portfolio-al7.pages.dev">portfolio</a> ·
       <a href="https://karan-portfolio-al7.pages.dev/cv">cv</a> ·
@@ -405,6 +428,19 @@ document.getElementById('cf').addEventListener('submit', async function(e) {
   }
   btn.textContent = 'Send'; btn.disabled = false;
 });
+</script>
+<script>
+(function(){
+  const btn=document.getElementById('theme-btn');
+  const root=document.documentElement;
+  const saved=localStorage.getItem('theme')||'dark';
+  if(saved==='light'){root.setAttribute('data-theme','light');if(btn)btn.textContent='☽';}
+  if(btn)btn.addEventListener('click',()=>{
+    const c=root.getAttribute('data-theme');
+    if(c==='light'){root.removeAttribute('data-theme');localStorage.setItem('theme','dark');btn.textContent='☀';}
+    else{root.setAttribute('data-theme','light');localStorage.setItem('theme','light');btn.textContent='☽';}
+  });
+})();
 </script>
 </body>
 </html>
