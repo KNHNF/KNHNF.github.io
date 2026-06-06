@@ -403,3 +403,51 @@ footer {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--surface); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--border2); }
+
+/* ============================================================
+   MOBILE FIRST OVERRIDES — everything readable without zooming
+   ============================================================ */
+
+/* Base font size bigger on mobile */
+@media (max-width: 768px) {
+  body { font-size: 17px; }
+
+  /* Nav */
+  .nav-logo { font-size: 1.2rem; }
+
+  /* Buttons -- bigger tap targets */
+  .btn-primary, .btn-secondary {
+    font-size: 0.95rem;
+    padding: 0.9rem 1.8rem;
+    min-height: 48px;
+  }
+
+  /* Section utilities */
+  .section-eyebrow { font-size: 0.8rem; }
+  .section-h2 { font-size: clamp(1.8rem, 6vw, 2.2rem); }
+
+  /* Tags */
+  .tag { font-size: 0.75rem; padding: 0.25rem 0.7rem; }
+
+  /* Forms */
+  .form-input, .form-textarea {
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+    min-height: 48px;
+  }
+  .form-textarea { min-height: 110px; }
+
+  /* Footer */
+  .footer-left, .footer-right a { font-size: 0.82rem; }
+  .footer-right { gap: 1.2rem; flex-wrap: wrap; }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+  body { font-size: 16px; }
+  .container { padding: 0 1rem; }
+  .btn-primary, .btn-secondary {
+    font-size: 0.88rem;
+    padding: 0.85rem 1.4rem;
+  }
+}
