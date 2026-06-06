@@ -1,390 +1,386 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Karan Homayounfar</title>
-<meta name="description" content="MSc Data Science, UWE Bristol. Data pipelines, forecasting models, and web products.">
+<meta name="description" content="MSc Data Science, UWE Bristol. Data pipelines, forecasting models, and production web systems.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
-  :root {
-    --bg: #191926;
-    --bg2: #21213a;
-    --bg3: #27273e;
-    --border: rgba(255,255,255,0.11);
-    --border2: rgba(255,255,255,0.20);
-    --text: #e8e8f0;
-    --text2: #b0b0cc;
-    --text3: #7878a0;
-    --accent: #a78bfa;
-    --teal: #2dd4bf;
-    --green: #4ade80;
-    --amber: #fbbf24;
-    --fn: 'Syne', sans-serif;
-    --fb: 'DM Sans', sans-serif;
-    --fm: 'DM Mono', monospace;
-    --nav-bg: rgba(13,13,21,0.88);
-  }
-  [data-theme="light"] {
-    --bg: #f4f4f8;
-    --bg2: #eaeaf0;
-    --bg3: #dfdfe8;
-    --border: rgba(0,0,0,0.08);
-    --border2: rgba(0,0,0,0.15);
-    --text: #1a1a2e;
-    --text2: #44446a;
-    --text3: #7a7a9a;
-    --accent: #7c3aed;
-    --teal: #0d9488;
-    --green: #16a34a;
-    --nav-bg: rgba(244,244,248,0.92);
-  }
-  .theme-toggle {
-    background: none; border: 1px solid var(--border2); color: var(--text2);
-    width: 32px; height: 32px; border-radius: 7px; cursor: pointer;
-    font-size: 0.82rem; display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s; flex-shrink: 0;
-  }
-  .theme-toggle:hover { background: var(--bg3); color: var(--text); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 4.5rem 2rem 6rem; }
 
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--bg); color: var(--text); font-family: var(--fb); font-size: 15px; line-height: 1.65; min-height: 100vh; }
-
-  .wrap { max-width: 780px; margin: 0 auto; padding: 5rem 2rem 6rem; }
-
-  /* ── HEADER ── */
-  .header { margin-bottom: 4rem; }
-
-  .header-top {
-    display: flex; align-items: flex-start;
-    justify-content: space-between; gap: 2rem;
-    margin-bottom: 2rem;
-  }
-
-  .name-block { flex: 1; }
-
+  /* HEADER */
   .name {
-    font-family: var(--fn); font-weight: 800;
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    letter-spacing: -0.04em; line-height: 0.95;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    letter-spacing: -0.04em;
+    line-height: 0.95;
     margin-bottom: 0.5rem;
   }
-
   .name span {
     display: block;
     background: linear-gradient(135deg, var(--accent) 20%, var(--teal) 100%);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
   .handle {
-    font-family: var(--fm); font-size: 0.7rem;
-    color: var(--text3); letter-spacing: 0.08em;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text3);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
   }
-
   .status-pill {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-family: var(--fm); font-size: 0.65rem; letter-spacing: 0.07em;
-    color: var(--green); background: rgba(74,222,128,0.08);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.07em;
+    color: var(--green);
+    background: rgba(74,222,128,0.07);
     border: 1px solid rgba(74,222,128,0.2);
-    padding: 0.3rem 0.7rem; border-radius: 20px;
-    margin-top: 1rem; white-space: nowrap;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
   }
-
   .status-dot {
     width: 6px; height: 6px; border-radius: 50%;
     background: var(--green);
     animation: pulse 2s ease-in-out infinite;
   }
-
   @keyframes pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.8); }
+    50%       { opacity: 0.4; transform: scale(0.8); }
   }
-
   .bio {
-    font-size: 0.92rem; color: var(--text2);
-    line-height: 1.7; max-width: 460px;
+    font-size: 0.92rem;
+    color: var(--text2);
+    line-height: 1.75;
+    max-width: 480px;
     margin-bottom: 1.5rem;
   }
-
-  .links { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0;
+  }
   .link-btn {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-family: var(--fm); font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.04em; text-decoration: none;
-    padding: 0.45rem 1rem; border-radius: 5px; transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    padding: 0.45rem 1rem;
+    border-radius: 5px;
+    transition: all 0.2s;
+    white-space: nowrap;
   }
-  .lp { color: #0a0a0f; background: var(--accent); }
-  .lp:hover { background: #c4b5fd; }
+  .lp { color: #fff; background: var(--accent2); }
+  .lp:hover { background: var(--accent); }
   .lg { color: var(--text2); border: 1px solid var(--border2); }
-  .lg:hover { color: var(--text); border-color: rgba(255,255,255,0.22); }
+  .lg:hover { color: var(--text); border-color: var(--accent); }
 
-  /* ── STATS ── */
+  /* STATS */
   .stats-strip {
-    display: grid; grid-template-columns: repeat(5, 1fr);
-    gap: 0.75rem; margin-bottom: 3.5rem;
-    padding: 1.5rem; background: var(--bg2);
-    border: 1px solid var(--border); border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+    margin: 2.5rem 0;
+    padding: 1.25rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
   }
-
   .stat { text-align: center; }
-
   .stat-n {
-    font-family: var(--fn); font-weight: 800;
-    font-size: 1.55rem; letter-spacing: -0.03em;
-    color: var(--accent); line-height: 1;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.03em;
+    color: var(--accent);
+    line-height: 1;
   }
-
   .stat-l {
-    font-family: var(--fm); font-size: 0.58rem;
-    color: var(--text3); letter-spacing: 0.07em;
-    text-transform: uppercase; margin-top: 0.3rem;
+    font-family: var(--font-mono);
+    font-size: 0.57rem;
+    color: var(--text3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
     line-height: 1.3;
   }
 
-  /* ── SECTION ── */
-  .sec { margin-bottom: 3rem; }
-
+  /* SECTIONS */
+  .sec { margin-bottom: 2.75rem; }
   .sec-title {
-    font-family: var(--fm); font-size: 0.62rem;
-    letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin-bottom: 1rem;
-    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
   }
 
-  /* ── PROJECTS ── */
+  /* PROJECTS */
   .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-
   .proj {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.1rem 1.2rem;
-    text-decoration: none; color: inherit;
-    transition: all 0.2s; display: flex;
-    flex-direction: column; gap: 0.4rem;
-    position: relative; overflow: hidden;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.1rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.22s ease;
   }
-
   .proj::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: 1px; background: linear-gradient(90deg, var(--accent), var(--teal));
-    opacity: 0; transition: opacity 0.2s;
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--teal));
+    opacity: 0;
+    transition: opacity 0.22s;
   }
-
-  .proj:hover { border-color: var(--border2); transform: translateY(-2px); }
+  .proj:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
   .proj:hover::before { opacity: 1; }
-
-  .proj-name { font-family: var(--fm); font-size: 0.78rem; font-weight: 500; color: var(--accent); }
+  .proj-name { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; color: var(--accent); }
   .proj-desc { font-size: 0.77rem; color: var(--text2); line-height: 1.5; flex: 1; }
-
   .proj-foot {
-    display: flex; align-items: center; justify-content: space-between;
-    font-family: var(--fm); font-size: 0.62rem; color: var(--text3); margin-top: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--text3);
+    margin-top: 0.2rem;
   }
-
-  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 0.3rem; }
-
+  .lang-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 0.3rem; }
   .badge {
-    font-family: var(--fm); font-size: 0.57rem; letter-spacing: 0.06em;
-    text-transform: uppercase; padding: 0.12rem 0.4rem; border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.57rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.12rem 0.45rem;
+    border-radius: 3px;
   }
-  .blive { color: var(--green); background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.18); }
-  .bwip  { color: var(--amber); background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.18); }
-  .bdone { color: var(--accent); background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.18); }
 
-  /* ── STACK ── */
-  .stack {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: 10px; padding: 1.3rem 1.5rem;
-    font-family: var(--fm); font-size: 0.76rem;
-    color: var(--text2); line-height: 2.1;
+  /* TOOLS */
+  .tools-box {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: var(--text2);
+    line-height: 2.2;
   }
   .sk { color: var(--teal); min-width: 90px; display: inline-block; }
 
-  /* ── CONTACT ── */
+  /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-
   .contact-left p { font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 1rem; }
-
   .contact-channels { display: flex; flex-direction: column; gap: 0.5rem; }
   .ch {
-    display: flex; align-items: center; gap: 0.6rem;
-    font-family: var(--fm); font-size: 0.72rem; color: var(--text2);
-    text-decoration: none; transition: color 0.2s;
-    padding: 0.3rem 0; border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text2);
+    text-decoration: none;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
   }
   .ch:last-child { border-bottom: none; }
   .ch:hover { color: var(--text); }
 
   .form { display: flex; flex-direction: column; gap: 0.65rem; }
-
   .fi, .ft {
-    background: var(--bg3); border: 1px solid var(--border2);
-    border-radius: 6px; padding: 0.65rem 0.9rem;
-    color: var(--text); font-family: var(--fm); font-size: 0.76rem;
-    outline: none; transition: border-color 0.2s; width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    padding: 0.65rem 0.9rem;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
   }
   .fi:focus, .ft:focus { border-color: var(--accent); }
   .fi::placeholder, .ft::placeholder { color: var(--text3); }
   .ft { resize: vertical; min-height: 90px; }
-
   .fsub {
-    font-family: var(--fm); font-size: 0.73rem; font-weight: 500;
-    letter-spacing: 0.04em; color: #0a0a0f; background: var(--accent);
-    border: none; padding: 0.65rem 1.25rem; border-radius: 6px;
-    cursor: pointer; transition: background 0.2s; align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: 0.73rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background: var(--accent2);
+    border: none;
+    padding: 0.65rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
   }
-  .fsub:hover { background: #c4b5fd; }
-  #fm { font-family: var(--fm); font-size: 0.7rem; margin-top: 0.25rem; }
+  .fsub:hover { background: var(--accent); }
+  #fm { font-family: var(--font-mono); font-size: 0.7rem; margin-top: 0.25rem; }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   .foot {
-    border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 3rem;
-    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
-    font-family: var(--fm); font-size: 0.65rem; color: var(--text3);
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text3);
   }
   .foot a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
   .foot a:hover { color: var(--text2); }
 
+  /* MOBILE */
   @media (max-width: 600px) {
-    .wrap { padding: 3rem 1.25rem 4rem; }
-    .header-top { flex-direction: column; gap: 1rem; }
+    .wrap { padding: 2rem 1.1rem 5rem; }
     .projects { grid-template-columns: 1fr; }
-    .stats-strip { grid-template-columns: repeat(3, 1fr); }
+    .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; padding: 1rem; }
+    .stat-n { font-size: 1.3rem; }
     .contact-grid { grid-template-columns: 1fr; }
+    .links { gap: 0.45rem; }
+    .link-btn { font-size: 0.68rem; padding: 0.4rem 0.85rem; }
+  }
+  @media (max-width: 380px) {
+    .stats-strip { grid-template-columns: repeat(2, 1fr); }
+    .name { font-size: 2rem; }
   }
 </style>
 </head>
 <body>
+
 <div class="wrap">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="header-top">
-      <div class="name-block">
-        <div class="name">
-          Karan
-          <span>Homayounfar</span>
-        </div>
-        <div class="handle">KNHNF · Bristol, UK</div>
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          Open to internships and freelance
-        </div>
-      </div>
+  <div style="margin-bottom:2.5rem;">
+    <div class="name">Karan<span>Homayounfar</span></div>
+    <div class="handle">KNHNF · Bristol, UK</div>
+    <div class="status-pill">
+      <span class="status-dot"></span>
+      Open to internships and freelance
     </div>
-
-    <div class="bio">MSc Data Science, UWE Bristol. Building data pipelines, forecasting models, and web products that run in production. BSc Computer Engineering, 1st in graduating class. Member, UWE Data and Computing Society.</div>
-
-    <div class="links" style="display:flex;align-items:center;gap:0.6rem;">
-      <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">☀</button>
-      <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="link-btn lp">Portfolio</a>
+    <p class="bio">MSc Data Science, UWE Bristol. Data pipelines, forecasting models, and production web systems. BSc Computer Engineering, ranked 1st in graduating class.</p>
+    <div class="links">
+      <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="link-btn lp">Portfolio ↗</a>
       <a href="https://karan-portfolio-al7.pages.dev/cv" target="_blank" rel="noopener" class="link-btn lg">CV</a>
       <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="link-btn lg">LinkedIn</a>
       <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="link-btn lg">GitHub</a>
+      <a href="https://karan-portfolio-al7.pages.dev/card" target="_blank" rel="noopener" class="link-btn lg">Card</a>
     </div>
   </div>
 
-  <!-- STATS -->
   <div class="stats-strip">
     <div class="stat"><div class="stat-n">1st</div><div class="stat-l">BSc rank</div></div>
-    <div class="stat"><div class="stat-n">18.87</div><div class="stat-l">BSc GPA / 20</div></div>
+    <div class="stat"><div class="stat-n">18.87</div><div class="stat-l">BSc GPA/20</div></div>
     <div class="stat"><div class="stat-n">Dist.</div><div class="stat-l">MSc grades</div></div>
     <div class="stat"><div class="stat-n">8+</div><div class="stat-l">Projects</div></div>
-    <div class="stat"><div class="stat-n">Gold</div><div class="stat-l">Student rep</div></div>
+    <div class="stat"><div class="stat-n">£1k</div><div class="stat-l">Enterprise scholar</div></div>
   </div>
 
-  <!-- PROJECTS -->
   <div class="sec">
     <div class="sec-title">Projects</div>
     <div class="projects">
-
       <a href="https://github.com/KNHNF/smartquote-assistant" target="_blank" rel="noopener" class="proj">
         <div class="proj-name">smartquote-assistant</div>
-        <div class="proj-desc">Email extraction and quote automation. Ollama local models plus OpenAI GPT. 96% field accuracy.</div>
+        <div class="proj-desc">Email extraction and quote automation. Ollama local models + OpenAI GPT. 96% field accuracy.</div>
         <div class="proj-foot">
-          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge bdone">Done</span>
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge badge-done">Done</span>
         </div>
       </a>
-
       <a href="https://github.com/KNHNF/retail-sales-kpi-analysis" target="_blank" rel="noopener" class="proj">
         <div class="proj-name">retail-sales-kpi-analysis</div>
         <div class="proj-desc">End-to-end BI pipeline. £10.6M retail dataset. Python, MySQL, Streamlit dashboard.</div>
         <div class="proj-foot">
-          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge bdone">Done</span>
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge badge-done">Done</span>
         </div>
       </a>
-
       <a href="https://github.com/KNHNF/file-organizer" target="_blank" rel="noopener" class="proj">
         <div class="proj-name">file-organizer</div>
-        <div class="proj-desc">Python CLI. Auto-sorts files with dry-run, undo, and custom config support.</div>
+        <div class="proj-desc">Automated file sorting by type and naming logic. Safe duplicate handling.</div>
         <div class="proj-foot">
-          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge bdone">Done</span>
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge badge-done">Done</span>
         </div>
       </a>
-
-      <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="proj">
+      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="proj">
         <div class="proj-name">reception-system</div>
-        <div class="proj-desc">Local model phone handler for SMEs. Phi-3/LLaMA plus Faster Whisper plus Google Calendar. UWE Enterprise Scholarship, pilot deployment.</div>
+        <div class="proj-desc">Local LLM phone handler for SMEs. Whisper STT + calendar integration. UWE Enterprise Scholarship.</div>
         <div class="proj-foot">
-          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge blive">Pilot</span>
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge badge-wip">Pilot</span>
         </div>
       </a>
-
-      <a href="https://karan-portfolio-al7.pages.dev/#projects" target="_blank" rel="noopener" class="proj">
+      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="proj">
         <div class="proj-name">gb-balancing-mechanism-ews</div>
-        <div class="proj-desc">MSc dissertation. Forecasting GB electricity balancing costs using Elexon BMRS half-hourly data. XGBoost, LightGBM, SHAP explainability.</div>
+        <div class="proj-desc">MSc dissertation. GB electricity cost forecasting. XGBoost, LightGBM, SHAP. Elexon BMRS data.</div>
         <div class="proj-foot">
-          <span><span class="dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge bwip">Dissertation</span>
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span class="badge badge-wip">Dissertation</span>
         </div>
       </a>
-
       <a href="https://dr-nastaran-site.pages.dev" target="_blank" rel="noopener" class="proj">
         <div class="proj-name">dr-nastaran-site</div>
         <div class="proj-desc">Client dental website. Cloudflare Pages, GA4, GTM, Clarity, before/after sliders, dark mode.</div>
         <div class="proj-foot">
-          <span><span class="dot" style="background:#e34c26;"></span>HTML</span>
-          <span class="badge blive">Live</span>
+          <span><span class="lang-dot" style="background:#e34c26;"></span>HTML</span>
+          <span class="badge badge-live">Live</span>
         </div>
       </a>
-
     </div>
   </div>
 
-  <!-- STACK -->
   <div class="sec">
-    <div class="sec-title">Stack</div>
-    <div class="stack">
+    <div class="sec-title">Tools</div>
+    <div class="tools-box">
       <span class="sk">Languages</span>Python · R · SQL · JavaScript · HTML/CSS · C++ · C#<br>
-      <span class="sk">Data</span>Python · R (tidyverse, ggplot2) · Pandas · NumPy · Scikit-learn · Matplotlib · Seaborn · XGBoost · LightGBM · Faster Whisper · Time-series<br>
+      <span class="sk">Data &amp; ML</span>Pandas · NumPy · Scikit-learn · XGBoost · LightGBM · SHAP · Faster Whisper · time-series<br>
       <span class="sk">Databases</span>MySQL · PostgreSQL · MongoDB<br>
-      <span class="sk">Deploy</span>Cloudflare Pages · GitHub Actions · Streamlit · FastAPI · Docker · n8n<br>
-      <span class="sk">Learning</span>Power BI · Cloud platforms
+      <span class="sk">Deploy</span>Cloudflare Pages · GitHub Actions · FastAPI · Streamlit · Docker · n8n
     </div>
   </div>
 
-  <!-- CONTACT -->
   <div class="sec">
     <div class="sec-title">Contact</div>
     <div class="contact-grid">
       <div class="contact-left">
-        <p>Open to freelance web and data projects, internships, and research collaborations. Based in Bristol.</p>
+        <p>Open to freelance web and data projects, internships, and research collaborations.</p>
         <div class="contact-channels">
           <a href="mailto:karanhomayounfar2@gmail.com" class="ch">karanhomayounfar2@gmail.com</a>
           <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="ch">linkedin.com/in/karan-homayounfar</a>
           <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="ch">github.com/KNHNF</a>
         </div>
       </div>
-
       <form class="form" id="cf">
         <input type="hidden" name="access_key" value="4bfe649e-79ed-4523-a4fc-08cc7c7ad382">
         <input type="hidden" name="subject" value="Message from knhnf.github.io">
@@ -410,37 +406,50 @@
 
 </div>
 
+<button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">🌙</button>
+
 <script>
+// Theme
+(function(){
+  const btn = document.getElementById('theme-btn');
+  const root = document.documentElement;
+  const saved = localStorage.getItem('kh-theme') || 'dark';
+  root.setAttribute('data-theme', saved);
+  btn.textContent = saved === 'light' ? '🌙' : '☀️';
+  btn.addEventListener('click', () => {
+    const cur = root.getAttribute('data-theme');
+    const next = cur === 'light' ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('kh-theme', next);
+    btn.textContent = next === 'light' ? '🌙' : '☀️';
+  });
+})();
+
+// Contact form
 document.getElementById('cf').addEventListener('submit', async function(e) {
   e.preventDefault();
-  const btn = this.querySelector('button');
+  const btn = this.querySelector('button[type=submit]');
   const msg = document.getElementById('fm');
   btn.textContent = 'Sending...'; btn.disabled = true;
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {method:'POST', body: new FormData(this)});
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST', body: new FormData(this)
+    });
     const data = await res.json();
     if (data.success) {
-      msg.style.color = '#4ade80'; msg.textContent = 'Sent.';
+      msg.style.color = 'var(--green)';
+      msg.textContent = 'Sent. I will get back to you soon.';
       this.reset();
-    } else throw new Error();
+    } else {
+      msg.style.color = 'var(--amber)';
+      msg.textContent = 'Something went wrong. Try emailing directly.';
+    }
   } catch {
-    msg.style.color = '#f87171'; msg.textContent = 'Something went wrong. Email me directly.';
+    msg.style.color = 'var(--amber)';
+    msg.textContent = 'Connection error.';
   }
   btn.textContent = 'Send'; btn.disabled = false;
 });
-</script>
-<script>
-(function(){
-  const btn=document.getElementById('theme-btn');
-  const root=document.documentElement;
-  const saved=localStorage.getItem('theme')||'dark';
-  if(saved==='light'){root.setAttribute('data-theme','light');if(btn)btn.textContent='☽';}
-  if(btn)btn.addEventListener('click',()=>{
-    const c=root.getAttribute('data-theme');
-    if(c==='light'){root.removeAttribute('data-theme');localStorage.setItem('theme','dark');btn.textContent='☀';}
-    else{root.setAttribute('data-theme','light');localStorage.setItem('theme','light');btn.textContent='☽';}
-  });
-})();
 </script>
 </body>
 </html>
