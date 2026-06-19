@@ -102,34 +102,36 @@ body { font-size: 15px; }
 .lg { color: var(--text2); border: 1px solid var(--border2); }
 .lg:hover { color: var(--text); border-color: var(--accent); }
 
-/* ── STATS GRID ──────────────────────────────────────── */
+/* ── STATS STRIP ─────────────────────────────────────── */
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.6rem;
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.1rem 1.25rem;
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   margin-bottom: 2rem;
+  padding: 0.9rem 0;
 }
-.stat { text-align: center; }
+.stat {
+  flex: 1; text-align: center;
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
 .stat-n {
   font-family: var(--font-display); font-weight: 800;
-  font-size: 1.45rem; letter-spacing: -0.03em;
+  font-size: 1.3rem; letter-spacing: -0.03em;
   color: var(--accent); line-height: 1;
 }
 .stat-l {
-  font-family: var(--font-mono); font-size: 0.55rem;
+  font-family: var(--font-mono); font-size: 0.53rem;
   color: var(--text3); letter-spacing: 0.06em;
-  text-transform: uppercase; margin-top: 0.22rem; line-height: 1.3;
+  text-transform: uppercase; margin-top: 0.2rem; line-height: 1.3;
 }
 
 /* ── SECTION HEADERS ─────────────────────────────────── */
 .sec-title {
   font-family: var(--font-mono); font-size: 0.62rem;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--teal); margin-bottom: 1rem;
+  color: var(--accent); margin-bottom: 1rem;
   padding-bottom: 0.45rem; border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
 }
@@ -142,24 +144,11 @@ body { font-size: 15px; }
 .analytics-section { margin-bottom: 2.25rem; }
 
 /* ── GITHUB ANALYTICS CARDS ──────────────────────────── */
-/* Show correct image per theme */
-.gh-dark  { display: block; }
-.gh-light { display: none; }
-[data-theme="light"] .gh-dark  { display: none; }
-[data-theme="light"] .gh-light { display: block; }
-
-.github-streak-wrap {
-  border-radius: 8px; overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--bg2);
-  margin-bottom: 0.75rem;
-}
-.github-streak-wrap img { width: 100%; display: block; }
-
 .github-cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 .github-card-wrap {
   border-radius: 8px; overflow: hidden;
@@ -172,7 +161,6 @@ body { font-size: 15px; }
   border-radius: 8px; overflow: hidden;
   border: 1px solid var(--border);
   background: var(--bg2); padding: 0.5rem;
-  margin-top: 0.75rem;
 }
 .contrib-graph-wrap img { width: 100%; display: block; border-radius: 4px; }
 
@@ -272,12 +260,13 @@ body { font-size: 15px; }
   .avatar-fallback { font-size: 1.4rem; }
   .projects-grid { grid-template-columns: 1fr; }
   .github-cards { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .stats-grid { flex-wrap: wrap; }
+  .stats-grid .stat { flex: 0 0 33%; border-right: none; padding: 0.4rem 0; }
   .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .hero-bio { max-width: 100%; }
 }
 @media (max-width: 380px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid .stat { flex: 0 0 50%; }
 }
 </style>
 </head>
@@ -329,43 +318,24 @@ body { font-size: 15px; }
       <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="sec-title-link">github.com/KNHNF ↗</a>
     </div>
 
-    <!-- Streak -->
-    <div class="github-streak-wrap">
-      <img class="gh-dark"
-           src="https://streak-stats.demolab.com/?user=KNHNF&theme=github-dark&hide_border=true&background=161b22&ring=38bdf8&fire=f97316&currStreakLabel=38bdf8&sideLabels=8b949e&currStreakNum=e6edf3&dates=484f58&sideNums=e6edf3"
-           alt="GitHub streak stats" loading="lazy">
-      <img class="gh-light"
-           src="https://streak-stats.demolab.com/?user=KNHNF&theme=default&hide_border=true&background=f0f6fc&ring=0284c7&fire=f97316&currStreakLabel=0284c7"
-           alt="GitHub streak stats" loading="lazy">
-    </div>
-
-    <!-- Stats + Languages -->
+    <!-- Stats + Languages (single img per card, src swapped by JS on theme change) -->
     <div class="github-cards">
       <div class="github-card-wrap">
-        <img class="gh-dark"
+        <img id="gh-stats"
              src="https://github-readme-stats.vercel.app/api?username=KNHNF&show_icons=true&theme=github_dark&hide_border=true&bg_color=161b22&title_color=38bdf8&icon_color=2dd4bf&text_color=8b949e&border_radius=8"
-             alt="GitHub stats" loading="lazy">
-        <img class="gh-light"
-             src="https://github-readme-stats.vercel.app/api?username=KNHNF&show_icons=true&theme=default&hide_border=true&bg_color=e6ecf2&title_color=0284c7&icon_color=0d9488&border_radius=8"
              alt="GitHub stats" loading="lazy">
       </div>
       <div class="github-card-wrap">
-        <img class="gh-dark"
+        <img id="gh-langs"
              src="https://github-readme-stats.vercel.app/api/top-langs/?username=KNHNF&layout=compact&theme=github_dark&hide_border=true&bg_color=161b22&title_color=38bdf8&text_color=8b949e&border_radius=8&langs_count=8"
-             alt="Top languages" loading="lazy">
-        <img class="gh-light"
-             src="https://github-readme-stats.vercel.app/api/top-langs/?username=KNHNF&layout=compact&theme=default&hide_border=true&bg_color=e6ecf2&title_color=0284c7&border_radius=8&langs_count=8"
              alt="Top languages" loading="lazy">
       </div>
     </div>
 
     <!-- Contribution activity graph -->
     <div class="contrib-graph-wrap">
-      <img class="gh-dark"
+      <img id="gh-graph"
            src="https://github-readme-activity-graph.vercel.app/graph?username=KNHNF&theme=github-compact&hide_border=true&bg_color=161b22&color=8b949e&line=38bdf8&point=2dd4bf&area=true&area_color=38bdf8"
-           alt="Contribution activity graph" loading="lazy">
-      <img class="gh-light"
-           src="https://github-readme-activity-graph.vercel.app/graph?username=KNHNF&theme=minimal&hide_border=true&bg_color=e6ecf2&color=2d3440&line=0284c7&point=0d9488&area=true"
            alt="Contribution activity graph" loading="lazy">
     </div>
   </div>
@@ -506,19 +476,39 @@ body { font-size: 15px; }
 <button class="theme-toggle" id="theme-btn" aria-label="Toggle theme">🌙</button>
 
 <script>
-// Theme
+// Theme + GitHub card URLs
 (function(){
-  const btn = document.getElementById('theme-btn');
-  const root = document.documentElement;
+  const GH_CARDS = {
+    'gh-stats': {
+      dark:  'https://github-readme-stats.vercel.app/api?username=KNHNF&show_icons=true&theme=github_dark&hide_border=true&bg_color=161b22&title_color=38bdf8&icon_color=2dd4bf&text_color=8b949e&border_radius=8',
+      light: 'https://github-readme-stats.vercel.app/api?username=KNHNF&show_icons=true&theme=default&hide_border=true&bg_color=e6ecf2&title_color=0284c7&icon_color=0d9488&border_radius=8'
+    },
+    'gh-langs': {
+      dark:  'https://github-readme-stats.vercel.app/api/top-langs/?username=KNHNF&layout=compact&theme=github_dark&hide_border=true&bg_color=161b22&title_color=38bdf8&text_color=8b949e&border_radius=8&langs_count=8',
+      light: 'https://github-readme-stats.vercel.app/api/top-langs/?username=KNHNF&layout=compact&theme=default&hide_border=true&bg_color=e6ecf2&title_color=0284c7&border_radius=8&langs_count=8'
+    },
+    'gh-graph': {
+      dark:  'https://github-readme-activity-graph.vercel.app/graph?username=KNHNF&theme=github-compact&hide_border=true&bg_color=161b22&color=8b949e&line=38bdf8&point=2dd4bf&area=true&area_color=38bdf8',
+      light: 'https://github-readme-activity-graph.vercel.app/graph?username=KNHNF&theme=minimal&hide_border=true&bg_color=e6ecf2&color=2d3440&line=0284c7&point=0d9488&area=true'
+    }
+  };
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('kh-theme', theme);
+    document.getElementById('theme-btn').textContent = theme === 'light' ? '🌙' : '☀️';
+    Object.entries(GH_CARDS).forEach(([id, urls]) => {
+      const el = document.getElementById(id);
+      if (el) el.src = urls[theme];
+    });
+  }
+
   const saved = localStorage.getItem('kh-theme') || 'dark';
-  root.setAttribute('data-theme', saved);
-  btn.textContent = saved === 'light' ? '🌙' : '☀️';
-  btn.addEventListener('click', () => {
-    const cur = root.getAttribute('data-theme');
-    const next = cur === 'light' ? 'dark' : 'light';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('kh-theme', next);
-    btn.textContent = next === 'light' ? '🌙' : '☀️';
+  applyTheme(saved);
+
+  document.getElementById('theme-btn').addEventListener('click', () => {
+    const cur = document.documentElement.getAttribute('data-theme');
+    applyTheme(cur === 'light' ? 'dark' : 'light');
   });
 })();
 
