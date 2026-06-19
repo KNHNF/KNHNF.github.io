@@ -3,302 +3,318 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karan Homayounfar</title>
-<meta name="description" content="MSc Data Science, UWE Bristol. Data pipelines, forecasting models, and production web systems.">
+<title>Karan Homayounfar — Data Scientist & Developer</title>
+<meta name="description" content="MSc Data Science, UWE Bristol. Data pipelines, ML engineering, and production web systems. BSc ranked 1st in class.">
+<meta property="og:title" content="Karan Homayounfar">
+<meta property="og:description" content="MSc Data Science · Bristol · Pipelines, models, and production systems.">
+<meta property="og:url" content="https://knhnf.github.io">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
 <style>
-  .wrap { max-width: 760px; margin: 0 auto; padding: 4.5rem 2rem 6rem; }
+/* ── PAGE CHROME ─────────────────────────────────────── */
+body { font-size: 15px; }
+.wrap { max-width: 820px; margin: 0 auto; padding: 3rem 2rem 6rem; }
 
-  /* HEADER */
-  .name {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
-    letter-spacing: -0.04em;
-    line-height: 0.95;
-    margin-bottom: 0.5rem;
-  }
-  .name span {
-    display: block;
-    background: linear-gradient(135deg, var(--accent) 20%, var(--teal) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  .handle {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--text3);
-    letter-spacing: 0.08em;
-    margin-bottom: 0.75rem;
-  }
-  .status-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.07em;
-    color: var(--green);
-    background: rgba(74,222,128,0.07);
-    border: 1px solid rgba(74,222,128,0.2);
-    padding: 0.3rem 0.75rem;
-    border-radius: 20px;
-    margin-bottom: 1.5rem;
-  }
-  .status-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--green);
-    animation: pulse 2s ease-in-out infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.4; transform: scale(0.8); }
-  }
-  .bio {
-    font-size: 0.92rem;
-    color: var(--text2);
-    line-height: 1.75;
-    max-width: 480px;
-    margin-bottom: 1.5rem;
-  }
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0;
-  }
-  .link-btn {
-    display: inline-flex;
-    align-items: center;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    padding: 0.45rem 1rem;
-    border-radius: 5px;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .lp { color: #fff; background: var(--accent2); }
-  .lp:hover { background: var(--accent); }
-  .lg { color: var(--text2); border: 1px solid var(--border2); }
-  .lg:hover { color: var(--text); border-color: var(--accent); }
+/* ── HERO ────────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+.avatar-wrap { position: relative; flex-shrink: 0; }
+.avatar {
+  width: 96px; height: 96px; border-radius: 50%;
+  object-fit: cover; object-position: center top;
+  border: 2px solid var(--border2);
+  display: block;
+}
+.avatar-fallback {
+  width: 96px; height: 96px; border-radius: 50%;
+  background: var(--bg2);
+  border: 2px solid var(--border2);
+  display: none; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 1.8rem; color: var(--accent);
+}
+.status-badge {
+  position: absolute; bottom: 2px; right: 2px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--bg);
+}
 
-  /* STATS */
-  .stats-strip {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0.75rem;
-    margin: 2.5rem 0;
-    padding: 1.25rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-  }
-  .stat { text-align: center; }
-  .stat-n {
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.5rem;
-    letter-spacing: -0.03em;
-    color: var(--accent);
-    line-height: 1;
-  }
-  .stat-l {
-    font-family: var(--font-mono);
-    font-size: 0.57rem;
-    color: var(--text3);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-top: 0.25rem;
-    line-height: 1.3;
-  }
+.hero-info { min-width: 0; }
+.hero-name {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  letter-spacing: -0.03em; line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.hero-handle {
+  font-family: var(--font-mono); font-size: 0.72rem;
+  color: var(--text3); letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+.hero-bio {
+  font-size: 0.9rem; color: var(--text2);
+  line-height: 1.7; max-width: 480px;
+  margin-bottom: 0.9rem;
+}
+.hero-meta {
+  display: flex; flex-wrap: wrap; gap: 0.9rem;
+  font-family: var(--font-mono); font-size: 0.68rem;
+  color: var(--text3); margin-bottom: 1rem;
+}
+.pill {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--font-mono); font-size: 0.63rem;
+  letter-spacing: 0.07em; color: var(--green);
+  background: rgba(74,222,128,0.07);
+  border: 1px solid rgba(74,222,128,0.2);
+  padding: 0.25rem 0.7rem; border-radius: 20px;
+  margin-bottom: 0.9rem;
+}
+.pill-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:0.4;transform:scale(0.8);}
+}
 
-  /* SECTIONS */
-  .sec { margin-bottom: 2.75rem; }
-  .sec-title {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--teal);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--border);
-  }
+.hero-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.link-btn {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-family: var(--font-mono); font-size: 0.68rem;
+  font-weight: 500; letter-spacing: 0.04em;
+  text-decoration: none; padding: 0.4rem 0.9rem;
+  border-radius: 5px; transition: all 0.2s; white-space: nowrap;
+}
+.lp { color: #fff; background: var(--accent2); }
+.lp:hover { background: var(--accent); color: #0d1117; }
+.lg { color: var(--text2); border: 1px solid var(--border2); }
+.lg:hover { color: var(--text); border-color: var(--accent); }
 
-  /* PROJECTS */
-  .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
-  .proj {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.1rem 1.2rem;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.22s ease;
-  }
-  .proj::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--teal));
-    opacity: 0;
-    transition: opacity 0.22s;
-  }
-  .proj:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
-  .proj:hover::before { opacity: 1; }
-  .proj-name { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 500; color: var(--accent); }
-  .proj-desc { font-size: 0.77rem; color: var(--text2); line-height: 1.5; flex: 1; }
-  .proj-foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    color: var(--text3);
-    margin-top: 0.2rem;
-  }
-  .lang-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 0.3rem; }
-  .badge {
-    font-family: var(--font-mono);
-    font-size: 0.57rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 0.12rem 0.45rem;
-    border-radius: 3px;
-  }
+/* ── STATS GRID ──────────────────────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.6rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 2rem;
+}
+.stat { text-align: center; }
+.stat-n {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: 1.45rem; letter-spacing: -0.03em;
+  color: var(--accent); line-height: 1;
+}
+.stat-l {
+  font-family: var(--font-mono); font-size: 0.55rem;
+  color: var(--text3); letter-spacing: 0.06em;
+  text-transform: uppercase; margin-top: 0.22rem; line-height: 1.3;
+}
 
-  /* TOOLS */
-  .tools-box {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem 1.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    color: var(--text2);
-    line-height: 2.2;
-  }
-  .sk { color: var(--teal); min-width: 90px; display: inline-block; }
+/* ── SECTION HEADERS ─────────────────────────────────── */
+.sec-title {
+  font-family: var(--font-mono); font-size: 0.62rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1rem;
+  padding-bottom: 0.45rem; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sec-title-link {
+  font-family: var(--font-mono); font-size: 0.58rem;
+  color: var(--text3); text-decoration: none; letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.sec-title-link:hover { color: var(--accent); }
+.analytics-section { margin-bottom: 2.25rem; }
 
-  /* CONTACT */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
-  .contact-left p { font-size: 0.88rem; color: var(--text2); line-height: 1.7; margin-bottom: 1rem; }
-  .contact-channels { display: flex; flex-direction: column; gap: 0.5rem; }
-  .ch {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--text2);
-    text-decoration: none;
-    padding: 0.3rem 0;
-    border-bottom: 1px solid var(--border);
-    transition: color 0.2s;
-  }
-  .ch:last-child { border-bottom: none; }
-  .ch:hover { color: var(--text); }
+/* ── GITHUB ANALYTICS CARDS ──────────────────────────── */
+/* Show correct image per theme */
+.gh-dark  { display: block; }
+.gh-light { display: none; }
+[data-theme="light"] .gh-dark  { display: none; }
+[data-theme="light"] .gh-light { display: block; }
 
-  .form { display: flex; flex-direction: column; gap: 0.65rem; }
-  .fi, .ft {
-    background: var(--bg3);
-    border: 1px solid var(--border2);
-    border-radius: 6px;
-    padding: 0.65rem 0.9rem;
-    color: var(--text);
-    font-family: var(--font-mono);
-    font-size: 0.76rem;
-    outline: none;
-    transition: border-color 0.2s;
-    width: 100%;
-  }
-  .fi:focus, .ft:focus { border-color: var(--accent); }
-  .fi::placeholder, .ft::placeholder { color: var(--text3); }
-  .ft { resize: vertical; min-height: 90px; }
-  .fsub {
-    font-family: var(--font-mono);
-    font-size: 0.73rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    color: #fff;
-    background: var(--accent2);
-    border: none;
-    padding: 0.65rem 1.25rem;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s;
-    align-self: flex-start;
-  }
-  .fsub:hover { background: var(--accent); }
-  #fm { font-family: var(--font-mono); font-size: 0.7rem; margin-top: 0.25rem; }
+.github-streak-wrap {
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  margin-bottom: 0.75rem;
+}
+.github-streak-wrap img { width: 100%; display: block; }
 
-  /* FOOTER */
-  .foot {
-    border-top: 1px solid var(--border);
-    padding-top: 1.5rem;
-    margin-top: 3rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--text3);
-  }
-  .foot a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
-  .foot a:hover { color: var(--text2); }
+.github-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.github-card-wrap {
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+}
+.github-card-wrap img { width: 100%; display: block; }
 
-  /* MOBILE */
-  @media (max-width: 600px) {
-    .wrap { padding: 2rem 1.1rem 5rem; }
-    .projects { grid-template-columns: 1fr; }
-    .stats-strip { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; padding: 1rem; }
-    .stat-n { font-size: 1.3rem; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .links { gap: 0.45rem; }
-    .link-btn { font-size: 0.68rem; padding: 0.4rem 0.85rem; }
-  }
-  @media (max-width: 380px) {
-    .stats-strip { grid-template-columns: repeat(2, 1fr); }
-    .name { font-size: 2rem; }
-  }
+.contrib-graph-wrap {
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg2); padding: 0.5rem;
+  margin-top: 0.75rem;
+}
+.contrib-graph-wrap img { width: 100%; display: block; border-radius: 4px; }
+
+/* ── PROJECTS ────────────────────────────────────────── */
+.projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.proj {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.1rem 1.2rem;
+  text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; gap: 0.4rem;
+  position: relative; overflow: hidden; transition: all 0.22s ease;
+}
+.proj::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--teal));
+  opacity: 0; transition: opacity 0.22s;
+}
+.proj:hover { border-color: var(--border2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+.proj:hover::before { opacity: 1; }
+.proj-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; }
+.proj-name {
+  font-family: var(--font-mono); font-size: 0.76rem;
+  font-weight: 500; color: var(--accent);
+  word-break: break-word; line-height: 1.3;
+}
+.proj-badge {
+  font-family: var(--font-mono); font-size: 0.56rem;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.12rem 0.45rem; border-radius: 3px; flex-shrink: 0;
+}
+.badge-live { color: var(--green); background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.2); }
+.badge-wip  { color: var(--amber); background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.2); }
+.badge-done { color: var(--accent); background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2); }
+.proj-desc { font-size: 0.76rem; color: var(--text2); line-height: 1.55; flex: 1; }
+.proj-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--font-mono); font-size: 0.62rem; color: var(--text3);
+  margin-top: 0.25rem;
+}
+.lang-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 0.3rem; }
+
+/* ── TOOLS ───────────────────────────────────────────── */
+.tools-box {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.1rem 1.4rem;
+  font-family: var(--font-mono); font-size: 0.75rem;
+  color: var(--text2); line-height: 2.1;
+}
+.sk { color: var(--teal); min-width: 90px; display: inline-block; }
+
+/* ── CONTACT ─────────────────────────────────────────── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.contact-left p { font-size: 0.87rem; color: var(--text2); line-height: 1.7; margin-bottom: 1rem; }
+.contact-channels { display: flex; flex-direction: column; gap: 0.5rem; }
+.ch {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-family: var(--font-mono); font-size: 0.7rem;
+  color: var(--text2); text-decoration: none;
+  padding: 0.3rem 0; border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.ch:last-child { border-bottom: none; }
+.ch:hover { color: var(--accent); }
+.form { display: flex; flex-direction: column; gap: 0.6rem; }
+.fi, .ft {
+  background: var(--bg3); border: 1px solid var(--border2);
+  border-radius: 6px; padding: 0.62rem 0.85rem;
+  color: var(--text); font-family: var(--font-mono); font-size: 0.74rem;
+  outline: none; transition: border-color 0.2s; width: 100%;
+}
+.fi:focus, .ft:focus { border-color: var(--accent); }
+.fi::placeholder, .ft::placeholder { color: var(--text3); }
+.ft { resize: vertical; min-height: 85px; }
+.fsub {
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.04em; color: #fff; background: var(--accent2);
+  border: none; padding: 0.62rem 1.2rem; border-radius: 6px;
+  cursor: pointer; transition: background 0.2s; align-self: flex-start;
+}
+.fsub:hover { background: var(--accent); color: #0d1117; }
+#fm { font-family: var(--font-mono); font-size: 0.68rem; margin-top: 0.2rem; }
+
+/* ── FOOTER ──────────────────────────────────────────── */
+.foot {
+  border-top: 1px solid var(--border); padding-top: 1.25rem; margin-top: 2.5rem;
+  display: flex; justify-content: space-between; flex-wrap: wrap;
+  gap: 0.5rem; font-family: var(--font-mono); font-size: 0.63rem; color: var(--text3);
+}
+.foot a { color: var(--text3); text-decoration: none; transition: color 0.2s; }
+.foot a:hover { color: var(--text2); }
+
+/* ── MOBILE ──────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .wrap { padding: 1.75rem 1.1rem 5rem; }
+  .hero { grid-template-columns: 1fr; gap: 1.25rem; }
+  .avatar, .avatar-fallback { width: 72px; height: 72px; }
+  .avatar-fallback { font-size: 1.4rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .github-cards { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-bio { max-width: 100%; }
+}
+@media (max-width: 380px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
 
 <div class="wrap">
 
-  <div style="margin-bottom:2.5rem;">
-    <div class="name">Karan<span>Homayounfar</span></div>
-    <div class="handle">KNHNF · Bristol, UK</div>
-    <div class="status-pill">
-      <span class="status-dot"></span>
-      Open to internships and freelance
+  <!-- HERO -->
+  <div class="hero">
+    <div class="avatar-wrap">
+      <img src="https://github.com/KNHNF.png?size=192" alt="Karan Homayounfar"
+           class="avatar"
+           onerror="this.style.display='none';document.getElementById('av-fallback').style.display='flex';">
+      <div id="av-fallback" class="avatar-fallback">KH</div>
+      <div class="status-badge" title="Open to work"></div>
     </div>
-    <p class="bio">MSc Data Science, UWE Bristol. Data pipelines, forecasting models, and production web systems. BSc Computer Engineering, ranked 1st in graduating class.</p>
-    <div class="links">
-      <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="link-btn lp">Portfolio ↗</a>
-      <a href="https://karan-portfolio-al7.pages.dev/cv" target="_blank" rel="noopener" class="link-btn lg">CV</a>
-      <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="link-btn lg">LinkedIn</a>
-      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="link-btn lg">GitHub</a>
-      <a href="https://karan-portfolio-al7.pages.dev/card" target="_blank" rel="noopener" class="link-btn lg">Card</a>
+    <div class="hero-info">
+      <div class="hero-name">Karan Homayounfar</div>
+      <div class="hero-handle">KNHNF · Bristol, UK</div>
+      <div class="pill"><span class="pill-dot"></span>Open to internships &amp; freelance</div>
+      <p class="hero-bio">MSc Data Science, UWE Bristol. I build data pipelines, ML systems, and web platforms that run in production — not just notebooks. BSc Computer Engineering, ranked 1st in graduating class.</p>
+      <div class="hero-meta">
+        <span>🎓 UWE Bristol · MSc Data Science</span>
+        <span>📍 Bristol, UK</span>
+        <span>⚡ AI · Pipelines · Automation</span>
+      </div>
+      <div class="hero-links">
+        <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="link-btn lp">Portfolio ↗</a>
+        <a href="https://karan-portfolio-al7.pages.dev/cv" target="_blank" rel="noopener" class="link-btn lg">CV</a>
+        <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="link-btn lg">LinkedIn</a>
+        <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="link-btn lg">GitHub</a>
+      </div>
     </div>
   </div>
 
-  <div class="stats-strip">
+  <!-- STATS STRIP -->
+  <div class="stats-grid">
     <div class="stat"><div class="stat-n">1st</div><div class="stat-l">BSc rank</div></div>
     <div class="stat"><div class="stat-n">18.87</div><div class="stat-l">BSc GPA/20</div></div>
     <div class="stat"><div class="stat-n">Dist.</div><div class="stat-l">MSc grades</div></div>
@@ -306,79 +322,160 @@
     <div class="stat"><div class="stat-n">£1k</div><div class="stat-l">Enterprise scholar</div></div>
   </div>
 
-  <div class="sec">
-    <div class="sec-title">Projects</div>
-    <div class="projects">
-      <a href="https://github.com/KNHNF/smartquote-assistant" target="_blank" rel="noopener" class="proj">
-        <div class="proj-name">smartquote-assistant</div>
-        <div class="proj-desc">Email extraction and quote automation. Ollama local models + OpenAI GPT. 96% field accuracy.</div>
-        <div class="proj-foot">
-          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge badge-done">Done</span>
-        </div>
-      </a>
-      <a href="https://github.com/KNHNF/retail-sales-kpi-analysis" target="_blank" rel="noopener" class="proj">
-        <div class="proj-name">retail-sales-kpi-analysis</div>
-        <div class="proj-desc">End-to-end BI pipeline. £10.6M retail dataset. Python, MySQL, Streamlit dashboard.</div>
-        <div class="proj-foot">
-          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge badge-done">Done</span>
-        </div>
-      </a>
-      <a href="https://github.com/KNHNF/file-organizer" target="_blank" rel="noopener" class="proj">
-        <div class="proj-name">file-organizer</div>
-        <div class="proj-desc">Automated file sorting by type and naming logic. Safe duplicate handling.</div>
-        <div class="proj-foot">
-          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge badge-done">Done</span>
-        </div>
-      </a>
-      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="proj">
-        <div class="proj-name">reception-system</div>
-        <div class="proj-desc">Local LLM phone handler for SMEs. Whisper STT + calendar integration. UWE Enterprise Scholarship.</div>
-        <div class="proj-foot">
-          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge badge-wip">Pilot</span>
-        </div>
-      </a>
-      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="proj">
-        <div class="proj-name">gb-balancing-mechanism-ews</div>
-        <div class="proj-desc">MSc dissertation. GB electricity cost forecasting. XGBoost, LightGBM, SHAP. Elexon BMRS data.</div>
-        <div class="proj-foot">
-          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span class="badge badge-wip">Dissertation</span>
-        </div>
-      </a>
-      <a href="https://dr-nastaran-site.pages.dev" target="_blank" rel="noopener" class="proj">
-        <div class="proj-name">dr-nastaran-site</div>
-        <div class="proj-desc">Client dental website. Cloudflare Pages, GA4, GTM, Clarity, before/after sliders, dark mode.</div>
-        <div class="proj-foot">
-          <span><span class="lang-dot" style="background:#e34c26;"></span>HTML</span>
-          <span class="badge badge-live">Live</span>
-        </div>
-      </a>
+  <!-- GITHUB ANALYTICS -->
+  <div class="analytics-section">
+    <div class="sec-title">
+      GitHub Analytics
+      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="sec-title-link">github.com/KNHNF ↗</a>
+    </div>
+
+    <!-- Streak -->
+    <div class="github-streak-wrap">
+      <img class="gh-dark"
+           src="https://streak-stats.demolab.com/?user=KNHNF&theme=github-dark&hide_border=true&background=161b22&ring=38bdf8&fire=f97316&currStreakLabel=38bdf8&sideLabels=8b949e&currStreakNum=e6edf3&dates=484f58&sideNums=e6edf3"
+           alt="GitHub streak stats" loading="lazy">
+      <img class="gh-light"
+           src="https://streak-stats.demolab.com/?user=KNHNF&theme=default&hide_border=true&background=f0f6fc&ring=0284c7&fire=f97316&currStreakLabel=0284c7"
+           alt="GitHub streak stats" loading="lazy">
+    </div>
+
+    <!-- Stats + Languages -->
+    <div class="github-cards">
+      <div class="github-card-wrap">
+        <img class="gh-dark"
+             src="https://github-readme-stats.vercel.app/api?username=KNHNF&show_icons=true&theme=github_dark&hide_border=true&bg_color=161b22&title_color=38bdf8&icon_color=2dd4bf&text_color=8b949e&border_radius=8"
+             alt="GitHub stats" loading="lazy">
+        <img class="gh-light"
+             src="https://github-readme-stats.vercel.app/api?username=KNHNF&show_icons=true&theme=default&hide_border=true&bg_color=e6ecf2&title_color=0284c7&icon_color=0d9488&border_radius=8"
+             alt="GitHub stats" loading="lazy">
+      </div>
+      <div class="github-card-wrap">
+        <img class="gh-dark"
+             src="https://github-readme-stats.vercel.app/api/top-langs/?username=KNHNF&layout=compact&theme=github_dark&hide_border=true&bg_color=161b22&title_color=38bdf8&text_color=8b949e&border_radius=8&langs_count=8"
+             alt="Top languages" loading="lazy">
+        <img class="gh-light"
+             src="https://github-readme-stats.vercel.app/api/top-langs/?username=KNHNF&layout=compact&theme=default&hide_border=true&bg_color=e6ecf2&title_color=0284c7&border_radius=8&langs_count=8"
+             alt="Top languages" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Contribution activity graph -->
+    <div class="contrib-graph-wrap">
+      <img class="gh-dark"
+           src="https://github-readme-activity-graph.vercel.app/graph?username=KNHNF&theme=github-compact&hide_border=true&bg_color=161b22&color=8b949e&line=38bdf8&point=2dd4bf&area=true&area_color=38bdf8"
+           alt="Contribution activity graph" loading="lazy">
+      <img class="gh-light"
+           src="https://github-readme-activity-graph.vercel.app/graph?username=KNHNF&theme=minimal&hide_border=true&bg_color=e6ecf2&color=2d3440&line=0284c7&point=0d9488&area=true"
+           alt="Contribution activity graph" loading="lazy">
     </div>
   </div>
 
-  <div class="sec">
-    <div class="sec-title">Tools</div>
+  <!-- PROJECTS -->
+  <div class="analytics-section">
+    <div class="sec-title">
+      Pinned Projects
+      <a href="https://github.com/KNHNF?tab=repositories" target="_blank" rel="noopener" class="sec-title-link">all repos ↗</a>
+    </div>
+    <div class="projects-grid">
+
+      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="proj">
+        <div class="proj-header">
+          <div class="proj-name">reception-system</div>
+          <span class="proj-badge badge-wip">Pilot</span>
+        </div>
+        <div class="proj-desc">Local LLM phone handler for SMEs. Whisper STT + LLaMA + Google Calendar API. UWE Enterprise Scholarship.</div>
+        <div class="proj-foot">
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span>FastAPI · LLM</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/KNHNF/smartquote-assistant" target="_blank" rel="noopener" class="proj">
+        <div class="proj-header">
+          <div class="proj-name">smartquote-assistant</div>
+          <span class="proj-badge badge-done">Done</span>
+        </div>
+        <div class="proj-desc">Email extraction and quote automation. Ollama local models + OpenAI GPT fallback. 96% field accuracy.</div>
+        <div class="proj-foot">
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span>Ollama · OpenAI</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/KNHNF/retail-sales-kpi-analysis" target="_blank" rel="noopener" class="proj">
+        <div class="proj-header">
+          <div class="proj-name">retail-sales-kpi-analysis</div>
+          <span class="proj-badge badge-done">Done</span>
+        </div>
+        <div class="proj-desc">End-to-end BI pipeline over £10.6M dataset. Python ETL, MySQL, Matplotlib dashboards.</div>
+        <div class="proj-foot">
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span>MySQL · Pandas</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="proj">
+        <div class="proj-header">
+          <div class="proj-name">gb-balancing-mechanism-ews</div>
+          <span class="proj-badge badge-wip">Dissertation</span>
+        </div>
+        <div class="proj-desc">MSc dissertation. GB electricity cost forecasting with XGBoost, LightGBM, SHAP. Elexon BMRS half-hourly data.</div>
+        <div class="proj-foot">
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span>XGBoost · SHAP</span>
+        </div>
+      </a>
+
+      <a href="https://dr-nastaran-site.pages.dev" target="_blank" rel="noopener" class="proj">
+        <div class="proj-header">
+          <div class="proj-name">dr-nastaran-site</div>
+          <span class="proj-badge badge-live">Live</span>
+        </div>
+        <div class="proj-desc">Client dental website. Cloudflare Pages, GA4, GTM, Clarity, before/after sliders, dark mode.</div>
+        <div class="proj-foot">
+          <span><span class="lang-dot" style="background:#e34c26;"></span>HTML</span>
+          <span>Cloudflare · GA4</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/KNHNF/file-organizer" target="_blank" rel="noopener" class="proj">
+        <div class="proj-header">
+          <div class="proj-name">file-organizer</div>
+          <span class="proj-badge badge-done">Done</span>
+        </div>
+        <div class="proj-desc">Automated file sorting by type and naming logic. Safe duplicate detection and handling.</div>
+        <div class="proj-foot">
+          <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
+          <span>Automation</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- STACK -->
+  <div class="analytics-section">
+    <div class="sec-title">Stack</div>
     <div class="tools-box">
       <span class="sk">Languages</span>Python · R · SQL · JavaScript · HTML/CSS · C++ · C#<br>
       <span class="sk">Data &amp; ML</span>Pandas · NumPy · Scikit-learn · XGBoost · LightGBM · SHAP · Faster Whisper · time-series<br>
       <span class="sk">Databases</span>MySQL · PostgreSQL · MongoDB<br>
-      <span class="sk">Deploy</span>Cloudflare Pages · GitHub Actions · FastAPI · Streamlit · Docker · n8n
+      <span class="sk">Deploy</span>Cloudflare Pages · GitHub Actions · FastAPI · Streamlit · Docker · n8n<br>
+      <span class="sk">Analytics</span>GA4 · Google Tag Manager · Microsoft Clarity
     </div>
   </div>
 
-  <div class="sec">
+  <!-- CONTACT -->
+  <div class="analytics-section">
     <div class="sec-title">Contact</div>
     <div class="contact-grid">
       <div class="contact-left">
-        <p>Open to freelance web and data projects, internships, and research collaborations.</p>
+        <p>Open to freelance web and data projects, internships, and research collaborations. I build things that ship.</p>
         <div class="contact-channels">
-          <a href="mailto:karanhomayounfar2@gmail.com" class="ch">karanhomayounfar2@gmail.com</a>
-          <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="ch">linkedin.com/in/karan-homayounfar</a>
-          <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="ch">github.com/KNHNF</a>
+          <a href="mailto:karanhomayounfar2@gmail.com" class="ch">✉ karanhomayounfar2@gmail.com</a>
+          <a href="https://linkedin.com/in/karan-homayounfar" target="_blank" rel="noopener" class="ch">in linkedin.com/in/karan-homayounfar</a>
+          <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="ch">⌥ github.com/KNHNF</a>
+          <a href="https://karan-portfolio-al7.pages.dev" target="_blank" rel="noopener" class="ch">◈ karan-portfolio-al7.pages.dev</a>
         </div>
       </div>
       <form class="form" id="cf">
@@ -388,7 +485,7 @@
         <input class="fi" name="name" type="text" placeholder="Name" required>
         <input class="fi" name="email" type="email" placeholder="Email" required>
         <textarea class="ft" name="message" placeholder="Message" required rows="4"></textarea>
-        <button class="fsub" type="submit">Send</button>
+        <button class="fsub" type="submit">Send →</button>
         <div id="fm"></div>
       </form>
     </div>
@@ -438,7 +535,7 @@ document.getElementById('cf').addEventListener('submit', async function(e) {
     const data = await res.json();
     if (data.success) {
       msg.style.color = 'var(--green)';
-      msg.textContent = 'Sent. I will get back to you soon.';
+      msg.textContent = '✓ Sent. I\'ll get back to you soon.';
       this.reset();
     } else {
       msg.style.color = 'var(--amber)';
@@ -448,7 +545,7 @@ document.getElementById('cf').addEventListener('submit', async function(e) {
     msg.style.color = 'var(--amber)';
     msg.textContent = 'Connection error.';
   }
-  btn.textContent = 'Send'; btn.disabled = false;
+  btn.textContent = 'Send →'; btn.disabled = false;
 });
 </script>
 </body>
