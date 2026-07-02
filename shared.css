@@ -9,23 +9,23 @@
 
 /* ── TOKENS ──────────────────────────────────────────────── */
 :root {
-  /* Dark (default) */
-  --bg:        #0d1117;
-  --bg2:       #161b22;
-  --bg3:       #1c2128;
-  --surface:   #262d36;
-  --border:    rgba(255,255,255,0.08);
-  --border2:   rgba(255,255,255,0.15);
-  --text:      #e6edf3;
-  --text2:     #8b949e;
-  --text3:     #484f58;
-  --accent:    #38bdf8;
+  /* Dark (default) - brightened July 2026 */
+  --bg:        #151c26;
+  --bg2:       #1e2733;
+  --bg3:       #27313f;
+  --surface:   #33404f;
+  --border:    rgba(255,255,255,0.12);
+  --border2:   rgba(255,255,255,0.22);
+  --text:      #f0f5fa;
+  --text2:     #a9b4c0;
+  --text3:     #7b8794;
+  --accent:    #45c5fb;
   --accent2:   #0284c7;
   --teal:      #2dd4bf;
   --amber:     #fbbf24;
   --green:     #4ade80;
   --orange:    #f97316;
-  --nav-bg:    rgba(13,17,23,0.92);
+  --nav-bg:    rgba(21,28,38,0.92);
 
   --font-display: 'Syne', sans-serif;
   --font-body:    'DM Sans', sans-serif;

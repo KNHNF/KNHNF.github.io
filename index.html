@@ -322,21 +322,24 @@ body { font-size: 15px; }
     <div class="github-cards">
       <div class="github-card-wrap">
         <img id="gh-stats"
-             src="https://github-readme-stats.vercel.app/api?username=KNHNF&show_icons=true&theme=github_dark&hide_border=true&bg_color=161b22&title_color=38bdf8&icon_color=2dd4bf&text_color=8b949e&border_radius=8"
-             alt="GitHub stats" loading="lazy">
+             src="https://github-readme-stats.vercel.app/api?username=KNHNF&show_icons=true&theme=github_dark&hide_border=true&bg_color=1e2733&title_color=38bdf8&icon_color=2dd4bf&text_color=a8b3bf&border_radius=8"
+             alt="GitHub stats" loading="lazy"
+             onerror="this.closest('.github-card-wrap').style.display='none';">
       </div>
       <div class="github-card-wrap">
         <img id="gh-langs"
-             src="https://github-readme-stats.vercel.app/api/top-langs/?username=KNHNF&layout=compact&theme=github_dark&hide_border=true&bg_color=161b22&title_color=38bdf8&text_color=8b949e&border_radius=8&langs_count=8"
-             alt="Top languages" loading="lazy">
+             src="https://github-readme-stats.vercel.app/api/top-langs/?username=KNHNF&layout=compact&theme=github_dark&hide_border=true&bg_color=1e2733&title_color=38bdf8&text_color=a8b3bf&border_radius=8&langs_count=8"
+             alt="Top languages" loading="lazy"
+             onerror="this.closest('.github-card-wrap').style.display='none';">
       </div>
     </div>
 
     <!-- Contribution activity graph -->
     <div class="contrib-graph-wrap">
       <img id="gh-graph"
-           src="https://github-readme-activity-graph.vercel.app/graph?username=KNHNF&theme=github-compact&hide_border=true&bg_color=161b22&color=8b949e&line=38bdf8&point=2dd4bf&area=true&area_color=38bdf8"
-           alt="Contribution activity graph" loading="lazy">
+           src="https://github-readme-activity-graph.vercel.app/graph?username=KNHNF&theme=github-compact&hide_border=true&bg_color=1e2733&color=a8b3bf&line=38bdf8&point=2dd4bf&area=true&area_color=38bdf8"
+           alt="Contribution activity graph" loading="lazy"
+           onerror="this.closest('.contrib-graph-wrap').style.display='none';"
     </div>
   </div>
 
@@ -386,13 +389,13 @@ body { font-size: 15px; }
 
       <a href="https://github.com/KNHNF" target="_blank" rel="noopener" class="proj">
         <div class="proj-header">
-          <div class="proj-name">gb-balancing-mechanism-ews</div>
+          <div class="proj-name">gb-bm-forecasting</div>
           <span class="proj-badge badge-wip">Dissertation</span>
         </div>
-        <div class="proj-desc">MSc dissertation. GB electricity cost forecasting with XGBoost, LightGBM, SHAP. Elexon BMRS half-hourly data.</div>
+        <div class="proj-desc">MSc dissertation. Forecasting total GB electricity balancing costs. LEAR baseline vs XGBoost and LSTM on Elexon BMRS data.</div>
         <div class="proj-foot">
           <span><span class="lang-dot" style="background:#3572A5;"></span>Python</span>
-          <span>XGBoost · SHAP</span>
+          <span>Time-series</span>
         </div>
       </a>
 
@@ -530,6 +533,17 @@ body { font-size: 15px; }
 
   const saved = localStorage.getItem('kh-theme') || 'dark';
   applyTheme(saved);
+
+  // Hide analytics cards if the stats service is down or rate-limited
+  setTimeout(() => {
+    Object.keys(GH_CARDS).forEach(id => {
+      const el = document.getElementById(id);
+      if (el && (!el.complete || el.naturalWidth === 0)) {
+        const wrap = el.closest('.github-card-wrap, .contrib-graph-wrap');
+        if (wrap) wrap.style.display = 'none';
+      }
+    });
+  }, 6000);
 
   document.getElementById('theme-btn').addEventListener('click', () => {
     const cur = document.documentElement.getAttribute('data-theme');
