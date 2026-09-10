@@ -9,31 +9,7 @@
 
 /* ── TOKENS ──────────────────────────────────────────────── */
 :root {
-  /* Dark (default) - brightened July 2026 */
-  --bg:        #151c26;
-  --bg2:       #1e2733;
-  --bg3:       #27313f;
-  --surface:   #33404f;
-  --border:    rgba(255,255,255,0.12);
-  --border2:   rgba(255,255,255,0.22);
-  --text:      #f0f5fa;
-  --text2:     #a9b4c0;
-  --text3:     #7b8794;
-  --accent:    #45c5fb;
-  --accent2:   #0284c7;
-  --teal:      #2dd4bf;
-  --amber:     #fbbf24;
-  --green:     #4ade80;
-  --orange:    #f97316;
-  --nav-bg:    rgba(21,28,38,0.92);
-
-  --font-display: 'Syne', sans-serif;
-  --font-body:    'DM Sans', sans-serif;
-  --font-mono:    'DM Mono', monospace;
-}
-
-/* ── LIGHT MODE ─────────────────────────────────────────── */
-[data-theme="light"] {
+  /* Light (default) */
   --bg:        #f0f6fc;
   --bg2:       #e6ecf2;
   --bg3:       #dae2ea;
@@ -50,6 +26,30 @@
   --green:     #16a34a;
   --orange:    #ea580c;
   --nav-bg:    rgba(240,246,252,0.94);
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+}
+
+/* ── DARK MODE (opt-in) ─────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:        #151c26;
+  --bg2:       #1e2733;
+  --bg3:       #27313f;
+  --surface:   #33404f;
+  --border:    rgba(255,255,255,0.12);
+  --border2:   rgba(255,255,255,0.22);
+  --text:      #f0f5fa;
+  --text2:     #a9b4c0;
+  --text3:     #7b8794;
+  --accent:    #45c5fb;
+  --accent2:   #0284c7;
+  --teal:      #2dd4bf;
+  --amber:     #fbbf24;
+  --green:     #4ade80;
+  --orange:    #f97316;
+  --nav-bg:    rgba(21,28,38,0.92);
 }
 
 /* ── RESET ──────────────────────────────────────────────── */
@@ -65,15 +65,17 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* ── THEME TOGGLE — always fixed bottom-left ────────────── */
+/* THEME TOGGLE, always fixed bottom-right (kept off the left edge so it never covers left-aligned card text on mobile) */
 .theme-toggle {
   position: fixed;
   bottom: 1.5rem;
-  left: 1.5rem;
+  right: 1.5rem;
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--bg2);
+  background: color-mix(in srgb, var(--bg2) 55%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border2);
   color: var(--text2);
   cursor: pointer;
