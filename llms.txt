@@ -1,0 +1,39 @@
+# Karan Homayounfar (KNHNF)
+
+> MSc Data Science student, UWE Bristol. Forecasting GB electricity balancing costs with
+> machine learning. Builds data pipelines, ML systems, and web platforms that run in
+> production, not just notebooks. BSc Computer Engineering, ranked 1st in graduating class.
+
+This site is the canonical profile and project landing page for Karan Homayounfar (handle:
+KNHNF). Open to internships, graduate roles, and research collaborations in data science,
+machine learning, and energy markets.
+
+## Profile
+
+- [GitHub](https://github.com/KNHNF): all source repositories
+- [LinkedIn](https://linkedin.com/in/karan-homayounfar): professional profile
+- [Portfolio](https://karan-portfolio-al7.pages.dev): full portfolio site
+- [CV](https://karan-portfolio-al7.pages.dev/cv): curriculum vitae
+- Contact: karanhomayounfar2@gmail.com
+
+## Projects
+
+- gb-bm-forecasting: forecasting total GB Balancing Mechanism cost per settlement period
+  using Elexon BMRS data, LEAR/XGBoost/LSTM models with rolling-window evaluation and
+  Diebold-Mariano testing. MSc dissertation project, repository private during assessment.
+- reception-system: offline voice assistant for SMEs using Faster Whisper STT and a
+  fine-tuned LLaMA/Phi-3 LLM with Google Calendar integration, prototype stage.
+- [epc-retrofit-potential-ml](https://github.com/KNHNF/epc-retrofit-potential-ml):
+  predicting UK residential retrofit potential from EPC open data under nested
+  cross-validation.
+- [england-crime-depriviation-analysis](https://github.com/KNHNF/england-crime-depriviation-analysis):
+  distributed Spark pipeline linking crime and deprivation across England.
+- [whisper-stt-eval](https://github.com/KNHNF/whisper-stt-eval): speech-to-text evaluation
+  on LibriSpeech, WER/CER/latency across model sizes, with a Streamlit dashboard.
+- [smartquote-assistant](https://github.com/KNHNF/smartquote-assistant): email extraction
+  and quote automation using local and cloud LLMs.
+
+## Notes
+
+- UK English throughout. All figures on this site are real, dated, and caveated where
+  relevant, not marketing estimates.
