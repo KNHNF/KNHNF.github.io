@@ -21,15 +21,11 @@ machine learning, and energy markets.
 - gb-bm-forecasting: forecasting total GB Balancing Mechanism cost per settlement period
   using Elexon BMRS data, LEAR/XGBoost/LSTM models with rolling-window evaluation and
   Diebold-Mariano testing. MSc dissertation project, repository private during assessment.
-- reception-system: offline voice assistant for SMEs using Faster Whisper STT and a
-  fine-tuned LLaMA/Phi-3 LLM with Google Calendar integration, prototype stage.
 - [epc-retrofit-potential-ml](https://github.com/KNHNF/epc-retrofit-potential-ml):
   predicting UK residential retrofit potential from EPC open data under nested
   cross-validation.
 - [england-crime-depriviation-analysis](https://github.com/KNHNF/england-crime-depriviation-analysis):
   distributed Spark pipeline linking crime and deprivation across England.
-- [whisper-stt-eval](https://github.com/KNHNF/whisper-stt-eval): speech-to-text evaluation
-  on LibriSpeech, WER/CER/latency across model sizes, with a Streamlit dashboard.
 - [smartquote-assistant](https://github.com/KNHNF/smartquote-assistant): email extraction
   and quote automation using local and cloud LLMs.
 
