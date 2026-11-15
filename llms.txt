@@ -18,9 +18,10 @@ machine learning, and energy markets.
 
 ## Projects
 
-- gb-bm-forecasting: forecasting total GB Balancing Mechanism cost per settlement period
-  using Elexon BMRS data, LEAR/XGBoost/LSTM models with rolling-window evaluation and
-  Diebold-Mariano testing. MSc dissertation project, repository private during assessment.
+- gb-bm-forecasting: forecasting the official NESO daily GB balancing cost one day ahead
+  from public data published before the delivery day. Ridge regression, simple baselines,
+  fixed-b Diebold-Mariano testing, forecasts saved before delivery. MSc dissertation project,
+  repository private during assessment.
 - reception-system: offline voice assistant for SMEs using Faster Whisper STT and a
   fine-tuned LLaMA/Phi-3 LLM with Google Calendar integration, prototype stage.
 - [epc-retrofit-potential-ml](https://github.com/KNHNF/epc-retrofit-potential-ml):
