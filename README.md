@@ -2,12 +2,12 @@
 
 Personal GitHub Pages profile for Karan Homayounfar, MSc Data Science at UWE Bristol, focused on GB energy markets, forecasting and time-series ML.
 
-Redirects to the main portfolio: [karan-portfolio-al7.pages.dev](https://karan-portfolio-al7.pages.dev)
+Redirects to the main portfolio: [knhnf.com](https://knhnf.com)
 
 ## Links
 
-- [Portfolio](https://karan-portfolio-al7.pages.dev)
-- [CV](https://karan-portfolio-al7.pages.dev/cv)
+- [Portfolio](https://knhnf.com)
+- [CV](https://knhnf.com/cv)
 - [GitHub profile](https://github.com/KNHNF)
 - [LinkedIn](https://linkedin.com/in/karan-homayounfar)
 

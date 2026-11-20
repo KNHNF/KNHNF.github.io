@@ -12,8 +12,8 @@ machine learning, and energy markets.
 
 - [GitHub](https://github.com/KNHNF): all source repositories
 - [LinkedIn](https://linkedin.com/in/karan-homayounfar): professional profile
-- [Portfolio](https://karan-portfolio-al7.pages.dev): full portfolio site
-- [CV](https://karan-portfolio-al7.pages.dev/cv): curriculum vitae
+- [Portfolio](https://knhnf.com): full portfolio site
+- [CV](https://knhnf.com/cv): curriculum vitae
 - Contact: karanhomayounfar2@gmail.com
 
 ## Projects
